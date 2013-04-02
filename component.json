@@ -8,5 +8,7 @@
     "typeplate": "latest",
     "wordpress": "~3.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "golden-grid-system": "latest"
+  }
 }
