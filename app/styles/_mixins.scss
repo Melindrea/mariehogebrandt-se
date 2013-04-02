@@ -1,0 +1,350 @@
+// ==========================================================================
+//   Mixins, functions and anonymous styles
+// ==========================================================================
+
+//-- Percentage for columns
+@function calc-span( $span: 1, $columns: 16, $margin: 0 ) {
+    @return (100%/$columns)*$span - (2*$margin);
+}
+
+//-- Gutterwidth, not returned in ems, to get ems: #{calc-gutter()}em
+@function calc-gutter( $span: 1, $font-size: $base-font-size, $line-height: $base-line-height) {
+    @return (($line-height/2)/$font-size)*$span;
+}
+
+//-- Based on http://goldengridsystem.com/
+//-- Container for holding other elements
+@mixin container($sides: 1, $top: 2)
+{
+    margin: #{$top*calc-gutter()}rem $sides*$column;
+}
+
+%container {
+    @include container;
+}
+
+%box-shadow {
+    @include box-shadow(4px 3px 10px rgba(0, 0, 0, 0.45));
+}
+
+//-- Simple elastic gutters
+//-- Note: box-sizing will not work in IE6-7
+@mixin inner-container {
+    padding: 0 #{calc-gutter()}em;
+}
+%inner-container {
+    @include inner-container;
+}
+// ==========================================================================
+//   Helper classes
+// ==========================================================================
+@mixin border-separator-top {
+    border-bottom: 3px solid;
+    margin-bottom: 1px;
+}
+
+@mixin border-separator-bottom {
+    border-top: 1px solid;
+
+    &:last-child {
+        border-bottom: 0 none;
+    }
+}
+
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Webkit-style focus
+// ------------------
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Center-align a block level element
+// ----------------------------------
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// IE7 inline-block
+// ----------------
+@mixin ie7-inline-block() {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+@mixin ie7-restore-left-whitespace() {
+  *margin-left: .3em;
+
+  &:first-child {
+    *margin-left: 0;
+  }
+}
+
+@mixin ie7-restore-right-whitespace() {
+  *margin-right: .3em;
+}
+
+// Sizing shortcuts
+// -------------------------
+@mixin size($height, $width) {
+  width: $width;
+  height: $height;
+}
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Placeholder text
+// -------------------------
+@mixin placeholder($color: $placeholderText) {
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// CSS image replacement
+// -------------------------
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+@mixin hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin hidden
+{
+    display: none !important;
+    visibility: hidden;
+}
+
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &.focusable:active,
+    &.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+@mixin invisible {
+    visibility: hidden;
+}
+
+//-- Selection is a nice touch, the "mark" element should match the selection
+@mixin selection ( $color: #fff, $background: #000 )
+{
+    ::-moz-selection { background: $background; color: $color; text-shadow: none; }
+    ::selection { background: $background; color: $color; text-shadow: none; }
+    mark {
+        background: $background;
+        color: $color;
+    }
+}
+
+// FORMS
+// --------------------------------------------------
+// Block level inputs
+@mixin input-block-level($input-height: 30px) {
+  display: block;
+  width: 100%;
+  min-height: $input-height; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  @include box-sizing(border-box); // Makes inputs behave like true block-level elements
+}
+
+
+
+// Mixin for form field states
+@mixin form-field-state($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
+  // Set the text color
+  .control-label,
+  .help-block,
+  .help-inline {
+    color: $text-color;
+  }
+  // Style inputs accordingly
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: $text-color;
+  }
+  input,
+  select,
+  textarea {
+    border-color: $border-color;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    &:focus {
+      border-color: darken($border-color, 10%);
+      @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($border-color, 20%));
+    }
+  }
+  // Give a small background color for input-prepend/-append
+  .input-prepend .add-on,
+  .input-append .add-on {
+    color: $text-color;
+    background-color: $background-color;
+    border-color: $text-color;
+  }
+}
+// BACKGROUNDS
+// --------------------------------------------------
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+@mixin translucent-background($color: $white, $alpha: 1) {
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@mixin translucent-border($color: $white, $alpha: 1) {
+  border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  @include background-clip(padding-box);
+}
+
+// Gradient Bar Colors for buttons and alerts
+@mixin gradient-bar($primary-color, $secondary-color, $text-color: #fff, $text-shadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: $text-color;
+  text-shadow: $text-shadow;
+  @include gradient-vertical($primary-color, $secondary-color);
+  border-color: $secondary-color $secondary-color darken($secondary-color, 15%);
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), 0.15);
+}
+
+// Gradients
+@mixin gradient-horizontal($start-color: #555, $end-color: #333) {
+  background-color: $end-color;
+  background-image: -moz-linear-gradient(left, $start-color, $end-color); // FF 3.6+
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, $start-color, $end-color); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color, $end-color); // Opera 11.10
+  background-image: linear-gradient(to right, $start-color, $end-color); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+@mixin gradient-vertical($start-color: #555, $end-color: #333) {
+  background-color: mix($start-color, $end-color, 60%);
+  background-image: -moz-linear-gradient(top, $start-color, $end-color); // FF 3.6+
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $start-color, $end-color); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color, $end-color); // Opera 11.10
+  background-image: linear-gradient(to bottom, $start-color, $end-color); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-color: $end-color;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient($deg, $start-color, $end-color); // FF 3.6+
+  background-image: -webkit-linear-gradient($deg, $start-color, $end-color); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient($deg, $start-color, $end-color); // Opera 11.10
+  background-image: linear-gradient($deg, $start-color, $end-color); // Standard, IE10
+}
+@mixin gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-color: mix($mid-color, $end-color, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start-color), color-stop($color-stop, $mid-color), to($end-color));
+  background-image: -webkit-linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-image: -moz-linear-gradient(top, $start-color, $mid-color $color-stop, $end-color);
+  background-image: -o-linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
+}
+@mixin gradient-radial($inner-color: #555, $outer-color: #333)  {
+  background-color: $outer-color;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($inner-color), to($outer-color));
+  background-image: -webkit-radial-gradient(circle, $inner-color, $outer-color);
+  background-image: -moz-radial-gradient(circle, $inner-color, $outer-color);
+  background-image: -o-radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-striped($color: #555, $angle: 45deg) {
+  background-color: $color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+}
+
+// Reset filters for IE
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+@mixin falured-gradient {
+    @include gradient-vertical-three-colors(lighten($falured, $step), $falured, 40%, darken($falured, $step));
+}
+%falured-gradient {
+    @include falured-gradient;
+}
+
+
+//-- Adjusting the colour
+@function adjust-hex( $color, $steps ) {
+    @return adjust-color( $color, $red: $steps, $green: $steps, $blue: $steps);
+}
+
+@mixin safe-font($safe-font, $fontface) {
+    font-family: $fontface;
+    .lt-ie9 &,
+    .no-fontface & {
+        font-family: $safe-font;
+    }
+}

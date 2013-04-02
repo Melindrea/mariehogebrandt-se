@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Playfair+Display+SC:400,900italic,900,700italic,700,400italic');
+
+@import "normalize";
+@import "variables";
+
+//Gems from Ruby
+@import "compass";
+@import "breakpoint";
+
+@import "mixins";
+
+@import "typeplate/scss/typeplate";
+
+* {
+    @include box-sizing(border-box);
+}
+
+html {
+    font-size: (14/16)*100%;
+    line-height: 1.5;
+
+    @include breakpoint(24em) {
+        font-size: 100%;
+    }
+
+    @include breakpoint(40em) {
+        font-size: (18/16)*100%;
+    }
+    @include breakpoint(117em) {
+        font-size: (20/16)*100%;
+    }
+
+    padding-top: #{calc-gutter()}em;
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,116 @@
+// ==========================================================================
+//
+// $V a r i a b l e s
+//
+// ==========================================================================
+
+// $G r i d
+// --------------------------------------------------------------------------
+$column: 100% / 18; //Important numbers for Golden Grid System
+$menu-breakpoint: 40em;
+
+// $B a s e  T y p e
+// --------------------------------------------------------------------------
+
+// $weight: normal !default;
+// $line-height: 1.65 !default;
+// $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
+$font-family: Georgia, serif !default;
+$alternate-font-family: "Playfair Display", Georgia, serif;
+$font-family-sans: Verdana, sans-serif !default;
+
+//the serif boolean var can be redeclared from another stylesheet. However
+//the var must be placed after your @import "typeplate.scss";
+$serif-boolean: true !default;
+
+
+// $C o l o r
+// --------------------------------------------------------------------------
+
+//$body-copy-color: #444 !default;
+//$heading-color: #222 !default;
+$step: 15;
+
+$beige: #d9b678; //#804718
+$lighter-beige: lighten($beige, 2*$step);
+$light-beige: lighten($beige, 20);
+$dark-beige:#55482f;
+$darker-beige:#2b2418;
+
+$white: $lighter-beige;
+$grey: #e4e5e6;
+$dark-grey: $dark-beige;
+$black: $darker-beige;
+
+
+$lighter-brown: #C0916A;
+$light-brown: #C0804B;
+$brown: #804718;
+$dark-brown: #604026;
+$darker-brown: #532A08;
+
+$lighter-falured: #C06A6A;
+$light-falured: #C04B4B;
+$falured: #801818;
+$dark-falured: #602626;
+$darker-falured:#530808;
+
+$lighter-purple: #B36390;
+$light-purple: #B34683;
+$purple: #671342;
+$dark-purple: #4D1E39;
+$darker-purple: #430628;
+
+$lighter-green: #63B363;
+$light-green: #46B346;
+$green: #136613;
+$dark-green: #1E4D1E;
+$darker-green: #064306;
+
+$body-copy-color: $dark-grey;
+$heading-color: $black;
+
+// $T y p e  S c a l e
+// --------------------------------------------------------------------------
+
+// $tera: 117 !default;        //  117 = 18 × 6.5
+// $giga: 90 !default;     //  90  = 18 × 5
+// $mega: 72 !default;     //  72  = 18 × 4
+// $alpha: 60 !default;        //  60  = 18 × 3.3333
+// $beta: 48 !default;     //  48  = 18 × 2.6667
+// $gamma: 36 !default;        //  36  = 18 × 2
+// $delta: 24 !default;        //  24  = 18 × 1.3333
+// $epsilon: 21 !default;  //  21  = 18 × 1.1667
+// $zeta: 18 !default;         //  18  = 18 × 1
+$eta: 15;// 15 = 18 * 0.8334
+$theta: 12;// 12 * 0.66667
+
+
+
+
+// $T y p e  S c a l e  U n i t
+// --------------------------------------------------------------------------
+
+// $type-scale-unit-value: rem !default;
+
+
+// $T e x t  I n d e n t a t i o n
+// --------------------------------------------------------------------------
+
+// $indent-val: 1.5em !default;
+
+
+// $S t a t s  T a b
+// --------------------------------------------------------------------------
+
+// $stats-font-size: 1.5rem !default;
+// $stats-list-margin: 0 0.625rem 0 0 !default;
+// $stats-list-padding: 0 0.625rem 0 0 !default;
+// $stats-item-font-size: 0.875rem !default;
+// $stats-item-margin: 0.125rem 0 0 0 !default;
+// $stats-border-style: 0.125rem solid #ccc !default;
+
+// $L o g o
+// --------------------------------------------------------------------------
+$logo-width: 566px;
+$logo-height: 360px;
