@@ -6,7 +6,7 @@
     "jquery": "~1.9.1",
     "selectivizr": "~1.0.2",
     "typeplate": "latest",
-    "wordpress": "~3.5.1"
+    "wordpress": "git://github.com/WordPress/WordPress.git#~3.5.1"
   },
   "devDependencies": {
     "golden-grid-system": "latest"

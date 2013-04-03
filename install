@@ -1,0 +1,16 @@
+#!/bin/bash
+
+declare -A COMMANDS
+
+COMMANDS[bundle]='Gemfile'
+COMMANDS[npm]='package.json'
+COMMANDS[bower]='component.json'
+
+for command in "${!COMMANDS[@]}"
+do
+    file=${COMMANDS[$command]}
+    if [ -f "$file" ]
+    then
+        ${command} install
+    fi
+done
