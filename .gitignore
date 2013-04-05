@@ -43,8 +43,6 @@ results
 
 npm-debug.log
 node_modules
-dist
-temp
 app/components
 /index.html
 runner
