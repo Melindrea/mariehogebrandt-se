@@ -39,6 +39,10 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass', 'modernizr']
             },
+            php: {
+                files: ['<%= yeoman.app %>/theme/**/*.php'],
+                tasks: ['phplint']
+            },
             theme: {
                 files: ['<%= yeoman.app %>/theme/**'],
                 tasks: ['copy:theme']
@@ -53,6 +57,9 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['livereload']
             }
+        },
+        phplint: {
+            theme: ['<%= yeoman.app %>/theme/**/*.php']
         },
         //Add the modernizr task with the following configuration
         modernizr: {
@@ -373,6 +380,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'js',
+        'phplint',
         'compass:dist',
         'useminPrepare',
         'imagemin',
@@ -388,9 +396,13 @@ module.exports = function (grunt) {
         'watch:theme'
     ]);
 
-    grunt.registerTask('default', [
+    grunt.registerTask('lint', [
         'jshint',
-        'test',
-        'build'
+        'phplint'
+    ]);
+
+    grunt.registerTask('travis', [
+        'lint',
+        'test'
     ]);
 };

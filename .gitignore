@@ -3,6 +3,7 @@
 !.jshintrc
 !.bowerrc
 !.editorconfig
+!.travis.yml
 *~
 .DS_Store
 .AppleDouble

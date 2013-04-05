@@ -22,9 +22,13 @@
     "grunt-mocha": "~0.2.2",
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.1",
-    "grunt-modernizr": "~0.2.1"
+    "grunt-modernizr": "~0.2.1",
+    "grunt-phplint": "0.0.2"
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
   }
 }
