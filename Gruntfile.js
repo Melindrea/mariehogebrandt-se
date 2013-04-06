@@ -23,17 +23,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
-            coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
                 tasks: ['js']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -177,27 +169,6 @@ module.exports = function (grunt) {
                     run: true,
                     urls: ['http://localhost:<%= connect.options.port %>/index.html']
                 }
-            }
-        },
-        coffee: {
-            dist: {
-                files: [{
-                    // rather than compiling multiple files here you should
-                    // require them into your main .coffee file
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/scripts',
-                    src: '*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/spec',
-                    src: '*.coffee',
-                    dest: 'test/spec'
-                }]
             }
         },
         compass: {
@@ -352,6 +323,9 @@ module.exports = function (grunt) {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
+        },
+        bumpup: {
+            files: ['package.json', 'component.json', 'composer.json']
         }
     });
 
@@ -419,8 +393,16 @@ module.exports = function (grunt) {
         'test'
     ]);
 
-    grunt.registerTask('release', [
+    grunt.registerTask('commit', [
         'build',
         'travis'
     ]);
+
+    // Alias task for release
+    // grunt.registerTask('release', function (type) {
+    //     type = type ? type : 'patch';     // Set the release type
+    //     grunt.task.run('build');         // Lint stuff
+    //     grunt.task.run('travis');         // Minify stuff
+    //     grunt.task.run('bumpup:' + type); // Bump up the version
+    // });
 };
