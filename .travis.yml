@@ -7,5 +7,5 @@ before_install:
  - sudo apt-get install -qq php5 ruby
  - bundle install
  - curl -sS https://getcomposer.org/installer | php
- - composer install --dev
+ - php composer.phar install --dev
 
