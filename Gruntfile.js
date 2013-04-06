@@ -363,22 +363,41 @@ module.exports = function (grunt) {
         'phpunit'
     ]);
 
-    grunt.registerTask('build', [
-        'clean:dist',
-        'js',
-        'phplint',
-        'compass:dist',
-        'useminPrepare',
-        'imagemin',
-        'htmlmin',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy',
-        'phpunit',
-        'usemin'
-    ]);
+    // grunt.registerTask('build', [
+    //     'clean:dist',
+    //     'js',
+    //     'phplint',
+    //     'compass:dist',
+    //     'useminPrepare',
+    //     'imagemin',
+    //     'htmlmin',
+    //     'concat',
+    //     'cssmin',
+    //     'uglify',
+    //     'copy',
+    //     'phpunit',
+    //     'usemin'
+    // ]);
 
+    grunt.registerTask('build', function (target) {
+        target = target ? target : 'patch';
+        grunt.task.run([
+            'clean:dist',
+            'js',
+            'phplint',
+            'compass:dist',
+            'useminPrepare',
+            'imagemin',
+            'htmlmin',
+            'concat',
+            'cssmin',
+            'uglify',
+            'copy',
+            'phpunit',
+            'usemin',
+            'bumpup:' + target
+        ]);
+    });
     grunt.registerTask('theme', [
         'watch:theme'
     ]);
@@ -394,16 +413,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('commit', [
-        'build',
-        'travis'//,
-        // 'bumpup'
+        'travis'
     ]);
-
-    // Alias task for release
-    // grunt.registerTask('release', function (type) {
-    //     type = type ? type : 'patch';     // Set the release type
-    //     grunt.task.run('build');         // Lint stuff
-    //     grunt.task.run('travis');         // Minify stuff
-    //     grunt.task.run('bumpup:' + type); // Bump up the version
-    // });
 };

@@ -5,12 +5,25 @@ declare -A COMMANDS
 COMMANDS[bundle]='Gemfile'
 COMMANDS[npm]='package.json'
 COMMANDS[bower]='component.json'
+COMMANDS[php-composer]='composer.json'
 
+echo "Installing dependencies"
 for command in "${!COMMANDS[@]}"
 do
     file=${COMMANDS[$command]}
     if [ -f "$file" ]
     then
         ${command} install
+    fi
+done
+
+echo "Preparing Git and hooks"
+git init
+
+for file in hooks/*
+do
+    if [ -f "$file"]; then
+        rm .git/hooks/${file}.sample
+        ln -s ${file} .git/hooks/${file}
     fi
 done
