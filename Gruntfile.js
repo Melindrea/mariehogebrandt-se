@@ -395,7 +395,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('commit', [
         'build',
-        'travis'
+        'travis',
+        'bumpup'
     ]);
 
     // Alias task for release
