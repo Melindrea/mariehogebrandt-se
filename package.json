@@ -24,7 +24,8 @@
     "matchdep": "~0.1.1",
     "grunt-modernizr": "~0.2.1",
     "grunt-phplint": "0.0.2",
-    "grunt-cli": "~0.1"
+    "grunt-cli": "~0.1",
+    "grunt-phpunit": "~0.2.1"
   },
   "engines": {
     "node": ">=0.8.0"

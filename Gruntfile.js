@@ -16,7 +16,7 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'wordpress/wp-content/themes/enebygard',
+        dist: 'wordpress/wp-content/themes/mariehogebrandt',
         wordpress: 'wordpress'
     };
 
@@ -338,6 +338,16 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        phpunit: {
+            classes: {
+                dir: 'test/php/spec/'
+            },
+            options: {
+                bin: '<%= yeoman.app %>/vendor/bin/phpunit',
+                bootstrap: 'test/php/phpunit.php',
+                colors: true
+            }
+        },
         bower: {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
@@ -374,7 +384,9 @@ module.exports = function (grunt) {
         'clean:server',
         'compass',
         'connect:test',
-        'mocha'
+        'mocha',
+        'copy:theme',
+        'phpunit'
     ]);
 
     grunt.registerTask('build', [
@@ -389,6 +401,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
+        'phpunit',
         'usemin'
     ]);
 
@@ -404,5 +417,10 @@ module.exports = function (grunt) {
     grunt.registerTask('travis', [
         'lint',
         'test'
+    ]);
+
+    grunt.registerTask('release', [
+        'build',
+        'travis'
     ]);
 };
