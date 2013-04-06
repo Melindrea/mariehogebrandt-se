@@ -8,5 +8,5 @@ before_install:
  - bundle install
  - curl -sS https://getcomposer.org/installer | php
  - php composer.phar install --dev
- - npm install
+ - npm install -g bower
  - bower install
