@@ -363,22 +363,6 @@ module.exports = function (grunt) {
         'phpunit'
     ]);
 
-    // grunt.registerTask('build', [
-    //     'clean:dist',
-    //     'js',
-    //     'phplint',
-    //     'compass:dist',
-    //     'useminPrepare',
-    //     'imagemin',
-    //     'htmlmin',
-    //     'concat',
-    //     'cssmin',
-    //     'uglify',
-    //     'copy',
-    //     'phpunit',
-    //     'usemin'
-    // ]);
-
     grunt.registerTask('build', function (target) {
         target = target ? target : 'patch';
         grunt.task.run([
@@ -415,5 +399,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask('commit', [
         'travis'
+    ]);
+
+    grunt.registerTask('default', [
+        'lint',
+        'test',
+        'build'
     ]);
 };

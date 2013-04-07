@@ -3,6 +3,7 @@
 # http://gmurphey.com/2012/12/22/grunt-pre-commit-hook-for-release-tasks.html
 # stash unstaged changes, run release task, stage release updates and
 # restore stashed files
+# Should now hopefully have correct line endings...
 NAME=$(git branch | grep '*' | sed 's/* //')
 
 # don't run on rebase
