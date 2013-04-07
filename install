@@ -29,8 +29,9 @@ shopt -s nullglob
 for file in hooks/*
 do
     if [ -f "$file" ]; then
+        chmod +x ${file}
         rm .git/${file}.sample
         rm .git/${file}
-        ln -s $PWD'/'${file} .git/${file}
+        cp -s $PWD'/'${file} .git/${file}
     fi
 done
