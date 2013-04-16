@@ -1,0 +1,102 @@
+//None of the headers are actually bold
+#{headers()} {
+    font-weight: $normal;
+}
+
+@mixin ornamented($char: getUnicode('£'), $position: 'both') {
+    @if $position == 'both' {
+        .fontface &:before,
+        .fontface &:after {
+            content: $char;
+            font-family: PrintersOrnaments;
+        }
+    }
+
+    @if $position == 'before' {
+        .fontface &:before {
+            content: $char;
+            font-family: PrintersOrnaments;
+        }
+    }
+
+    @if $position == 'after' {
+        .fontface &:after {
+            content: $char;
+            font-family: PrintersOrnaments;
+        }
+    }
+
+    @if $position == 'before' or $position == 'both' {
+        .fontface &:before {
+            margin-right: 0.033em;
+        }
+    }
+
+    @if $position == 'after' or $position == 'both' {
+        .fontface &:after {
+            margin-left: 0.033em;
+        }
+    }
+}
+// Title-cased, Ornamented
+// First paragraph has dropcap
+h1 {
+    text-transform: capitalize;
+    @include ornamented('H');
+}
+
+//Ornamented
+h3 {
+    @include ornamented('f');
+}
+
+//Cross-head
+#{headers(3)} {
+    text-align: center;
+}
+
+//Uppercase, higher letter spacing
+#{headers(2,4)} {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+//Indented Sidehead
+h4,
+h5 {
+    text-indent: $indent-val;
+}
+
+h5 {
+    font-style: italic;
+}
+
+//Run-in sidehead, Small-caps
+h6 {
+    @include smallcaps($body-copy-color, $normal);
+    font-size: inherit;
+    float: left;
+    margin-right: 0.5em;
+    line-height: inherit;
+    margin-bottom: 0;
+
+    & + p {
+        @include clearfix;
+        + p {
+            text-indent: 0;
+        }
+    }
+}
+
+//First paragraph Ornamented
+#{headers(5)} {
+    + p {
+        @include ornamented('N', 'before');
+    }
+}
+
+
+//TODO: Remove
+main {
+    max-width: 600px;
+}

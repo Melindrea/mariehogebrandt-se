@@ -1,0 +1,27 @@
+.l-container {
+    @extend %container;
+}
+
+.site-info,
+.main-nav,
+main,
+aside {
+    @extend %inner-container;
+}
+
+.content-first {
+    main,
+    aside {
+        margin-bottom: #{2*calc-gutter()}rem;
+    }
+    @include breakpoint(45em) {
+        main {
+            width: calc-span(5, 8);
+            float: left;
+        }
+        aside {
+            width: calc-span(3, 8);
+            float: left;
+        }
+    }
+}

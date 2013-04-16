@@ -16,13 +16,15 @@ $menu-breakpoint: 40em;
 // $line-height: 1.65 !default;
 // $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
 $font-family: Georgia, serif !default;
-$alternate-font-family: "Playfair Display", Georgia, serif;
+$alternate-font-family: Georgia, serif;
 $font-family-sans: Verdana, sans-serif !default;
 
 //the serif boolean var can be redeclared from another stylesheet. However
 //the var must be placed after your @import "typeplate.scss";
 $serif-boolean: true !default;
 
+$bold: 700;
+$normal: 400;
 
 // $C o l o r
 // --------------------------------------------------------------------------

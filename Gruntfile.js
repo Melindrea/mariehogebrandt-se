@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass', 'modernizr']
+                tasks: ['compass']//, 'modernizr']
             },
             php: {
                 files: ['<%= yeoman.app %>/theme/**/*.php'],
@@ -335,8 +335,8 @@ module.exports = function (grunt) {
     grunt.renameTask('regarde', 'watch');
 
     grunt.registerTask('js', [
-        'jshint',
-        'modernizr'
+        'jshint'//,
+        //'modernizr'
     ]);
 
     grunt.registerTask('server', function (target) {

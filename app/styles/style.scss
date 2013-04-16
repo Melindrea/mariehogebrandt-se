@@ -7,9 +7,31 @@
 @import "compass";
 @import "breakpoint";
 
+@font-face {
+    font-family: "Calendas Plus";
+    src: url(styles/fonts/Calendas_Plus.otf) format("opentype");
+}
+
+@font-face {
+    font-family: 'PrintersOrnaments';
+    src: url('styles/fonts/Ornaments/PrintersOrnamentsOne.eot');
+    src: url('styles/fonts/Ornaments/PrintersOrnamentsOne.eot?#iefix') format('embedded-opentype'),
+         url('styles/fonts/Ornaments/PrintersOrnamentsOne.woff') format('woff'),
+         url('styles/fonts/Ornaments/PrintersOrnamentsOne.ttf') format('truetype'),
+         url('styles/fonts/Ornaments/PrintersOrnamentsOne.svg#PrintersOrnamentsOneRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.test {
+    font-family: PrintersOrnaments;
+}
 @import "mixins";
 
+@import "layout";
 @import "typeplate/scss/typeplate";
+
+@import "typography";
 
 html {
     font-size: (14/16)*100%;
