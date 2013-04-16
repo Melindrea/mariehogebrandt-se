@@ -25,7 +25,8 @@
     "grunt-phplint": "0.0.2",
     "grunt-cli": "~0.1",
     "grunt-phpunit": "~0.2.1",
-    "grunt-bumpup": "~0.2.0"
+    "grunt-bumpup": "~0.2.0",
+    "grunt-csscss": "~0.2.0"
   },
   "engines": {
     "node": ">=0.8.0"

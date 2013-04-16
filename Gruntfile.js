@@ -192,6 +192,16 @@ module.exports = function (grunt) {
                 }
             }
         },
+        csscss: {
+            options: {
+                verbose: true,
+                outputJson: true,
+                compass: true
+            },
+            dist: {
+                src: ['.tmp/style.css']
+            }
+        },
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
