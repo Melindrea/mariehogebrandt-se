@@ -196,7 +196,8 @@ module.exports = function (grunt) {
             options: {
                 verbose: true,
                 outputJson: true,
-                compass: true
+                compass: true,
+                failWhenDuplicates: true
             },
             dist: {
                 src: ['.tmp/style.css']
