@@ -1,0 +1,66 @@
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    @extend .alignnone;
+}
+
+a {
+    img {
+        &.alignright {
+            @extend .alignright;
+        }
+
+        &.alignnone {
+            @extend .alignnone;
+        }
+
+        &.alignleft {
+            @extend .alignleft;
+        }
+
+        &.aligncenter {
+            @extend .aligncenter;
+        }
+    }
+}
+
+.wp-caption {
+    // background: #fff;
+    // border: 1px solid #f0f0f0;
+    // max-width: 96%; Image does not overflow the content area
+    // padding: 5px 3px 10px;
+    // text-align: center;
+
+    &.alignnone {
+        @extend .alignnone;
+    }
+
+    &.alignleft {
+        @extend .alignnone;
+    }
+
+    &.alignright {
+        @extend .alignright;
+    }
+}
+
+.wp-caption-text {
+    @extend .eta;
+    margin: 0;
+    padding: 0 4px 5px;
+}

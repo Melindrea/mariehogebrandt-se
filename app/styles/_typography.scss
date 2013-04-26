@@ -95,6 +95,29 @@ h6 {
     }
 }
 
+// WP-typography
+.amp {
+
+}
+
+.caps {
+    @include smallcaps($body-copy-color, $normal);
+}
+
+.numbers {
+
+}
+
+//Initial single quote
+.quo {
+
+}
+
+// Initial double quote
+.dquo {
+
+}
+
 
 //TODO: Remove
 main {
