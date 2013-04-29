@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass']//, 'modernizr']
+                tasks: ['compass', 'modernizr']
             },
             php: {
                 files: ['<%= yeoman.app %>/theme/**/*.php'],
@@ -303,6 +303,12 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.wordpress %>'
                 },
                 {
+                    cwd: '<%= yeoman.app %>/styles/fonts',
+                    expand: true,
+                    src: ['**'],
+                    dest: '<%= yeoman.dist %>/styles/fonts'
+                },
+                {
                     dest: '<%= yeoman.wordpress %>/wp-config.php',
                     src: ['wp-config.php']
                 },
@@ -346,8 +352,8 @@ module.exports = function (grunt) {
     grunt.renameTask('regarde', 'watch');
 
     grunt.registerTask('js', [
-        'jshint'//,
-        //'modernizr'
+        'jshint',
+        'modernizr'
     ]);
 
     grunt.registerTask('server', function (target) {
@@ -389,8 +395,8 @@ module.exports = function (grunt) {
             'uglify',
             'copy',
             'phpunit',
-            'usemin',
-            'bumpup:' + target
+            'usemin'//,
+            //'bumpup:' + target
         ]);
     });
     grunt.registerTask('theme', [
