@@ -313,6 +313,10 @@ module.exports = function (grunt) {
                     src: ['wp-config.php']
                 },
                 {
+                    dest: '<%= yeoman.dist %>/config.json',
+                    src: ['wordpress.json']
+                },
+                {
                     dest: '<%= yeoman.dist %>/README.md',
                     src: ['README.md']
                 }]
@@ -380,25 +384,21 @@ module.exports = function (grunt) {
         'phpunit'
     ]);
 
-    grunt.registerTask('build', function (target) {
-        target = target ? target : 'patch';
-        grunt.task.run([
-            'clean:dist',
-            'js',
-            'phplint',
-            'compass:dist',
-            'useminPrepare',
-            'imagemin',
-            'htmlmin',
-            'concat',
-            'cssmin',
-            'uglify',
-            'copy',
-            'phpunit',
-            'usemin'//,
-            //'bumpup:' + target
-        ]);
-    });
+    grunt.registerTask('build', [
+        'clean:dist',
+        'js',
+        'phplint',
+        'compass:dist',
+        'useminPrepare',
+        'imagemin',
+        'htmlmin',
+        'concat',
+        'cssmin',
+        'uglify',
+        'copy',
+        'phpunit',
+        'usemin'
+    ]);
     grunt.registerTask('theme', [
         'watch:theme'
     ]);

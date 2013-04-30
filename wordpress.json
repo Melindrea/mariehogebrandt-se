@@ -1,0 +1,15 @@
+{
+    "plugins": [
+        {
+            "name": "WordPress SEO by Yoast",
+            "slug": "wordpress-seo",
+            "required": true
+        },
+        {
+            "name": "WP-Typography",
+            "slug": "wp-typography",
+            "force_activation": true,
+            "source": "https://github.com/Melindrea/wp-typography/archive/master.zip"
+        }
+    ]
+}

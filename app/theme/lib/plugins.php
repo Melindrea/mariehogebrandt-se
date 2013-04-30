@@ -18,7 +18,18 @@
 
 // .zip from github: https://github.com/thomasgriffin/TGM-Plugin-Activation/archive/master.zip
 // https://github.com/Melindrea/wp-typography/archive/master.zip
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+
+// Fix the actual path later
+define('THEME_PATH', '/home/marie/projects/web/mariehogebrandt.se/wordpress/wp-content/themes/mariehogebrandt/');
+define('CONFIG', file_get_contents(THEME_PATH.'config.json'));
+echo THEME_PATH.PHP_EOL;
+
+$configFile = file_get_contents(THEME_PATH.'config.json');
+//echo $string.PHP_EOL;
+$config = json_decode(CONFIG, true);
+$plugins = $config['plugins'];
+print_r($plugins);
+//add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
