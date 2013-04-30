@@ -1,5 +1,14 @@
 /* =WordPress Core
 -------------------------------------------------------------- */
+/*
+size-thumbnail, size-full
+alignnone, aligncenter, alignright, alignleft
+With caption:
+div.wp-caption.alignx>(a>img.size-x.wp-image-x)+p.wp-caption-text
+
+Without caption:
+a>img.alignx.size-x
+*/
 .alignnone {
     margin: 5px 20px 20px 0;
 }

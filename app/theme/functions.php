@@ -103,14 +103,7 @@ function mariehogebrandt_register_custom_background()
 
     $args = apply_filters( 'mariehogebrandt_custom_background_args', $args );
 
-    if ( function_exists( 'wp_get_theme' ) ) {
-        add_theme_support( 'custom-background', $args );
-    } else {
-        define( 'BACKGROUND_COLOR', $args['default-color'] );
-        if ( ! empty( $args['default-image'] ) )
-            define( 'BACKGROUND_IMAGE', $args['default-image'] );
-        add_custom_background();
-    }
+    add_theme_support( 'custom-background', $args );
 }
 add_action( 'after_setup_theme', 'mariehogebrandt_register_custom_background' );
 
