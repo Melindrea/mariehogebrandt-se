@@ -11,12 +11,12 @@
 if ( ! isset( $content_width ) )
     $content_width = 640; /* pixels */
 
+require( get_template_directory() . '/config.php' );
 /*
  * Load Jetpack compatibility file.
  */
 require( get_template_directory() . '/lib/jetpack.php' );
-require( get_template_directory() . '/lib/vendor/mobile-detect.php' );
-require( get_template_directory() . '/lib/vendor/tgm-plugin-activation.php' );
+
 
 if ( ! function_exists( 'mariehogebrandt_setup' ) ) :
 /**
@@ -44,6 +44,9 @@ function mariehogebrandt_setup()
      */
     require( get_template_directory() . '/lib/customizer.php' );
 
+    require( get_template_directory() . '/lib/vendor/mobile-detect.php' );
+    require( get_template_directory() . '/lib/vendor/tgm-plugin-activation.php' );
+    require( get_template_directory() . '/lib/cleanup.php' );
     /**
      * WordPress.com-specific functions and definitions
      */
