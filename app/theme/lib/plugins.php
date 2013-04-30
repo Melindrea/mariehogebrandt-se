@@ -22,14 +22,11 @@
 // Fix the actual path later
 define('THEME_PATH', '/home/marie/projects/web/mariehogebrandt.se/wordpress/wp-content/themes/mariehogebrandt/');
 define('CONFIG', file_get_contents(THEME_PATH.'config.json'));
-echo THEME_PATH.PHP_EOL;
+//echo THEME_PATH.PHP_EOL;
 
-$configFile = file_get_contents(THEME_PATH.'config.json');
-//echo $string.PHP_EOL;
 $config = json_decode(CONFIG, true);
 $plugins = $config['plugins'];
-print_r($plugins);
-//add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'mariehogebrandt_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -42,37 +39,13 @@ print_r($plugins);
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function mariehogebrandt_register_required_plugins() {
 
-    /**
-     * Array of plugin arrays. Required keys are name and slug.
-     * If the source is NOT from the .org repo, then source is also required.
-     */
-    $plugins = array(
-
-        // This is an example of how to include a plugin pre-packaged with a theme
-        array(
-            'name'                  => 'TGM Example Plugin', // The plugin name
-            'slug'                  => 'tgm-example-plugin', // The plugin slug (typically the folder name)
-            'source'                => get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source
-            'required'              => true, // If false, the plugin is only 'recommended' instead of required
-            'version'               => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
-            'force_activation'      => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-            'force_deactivation'    => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-            'external_url'          => '', // If set, overrides default API URL and points to an external URL
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      => 'BuddyPress',
-            'slug'      => 'buddypress',
-            'required'  => false,
-        ),
-
-    );
+    $globalConfig = json_decode(CONFIG, true);
+    $plugins = $globalConfig['plugins'];
 
     // Change this to your theme text domain, used for internationalising strings
-    $theme_text_domain = 'tgmpa';
+    $theme_text_domain = 'mariehogebrandt';
 
     /**
      * Array of configuration settings. Amend each line as needed.
