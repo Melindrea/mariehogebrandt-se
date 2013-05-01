@@ -1,52 +1,19 @@
-//None of the headers are actually bold
-#{headers()} {
-    font-weight: $normal;
+.eta {
+    @include modular-scale($eta, $font-base, '#{$type-scale-unit-value}', $measure);
 }
 
-@mixin ornamented($char: getUnicode('£'), $position: 'both') {
-    @if $position == 'both' {
-        .fontface &:before,
-        .fontface &:after {
-            content: $char;
-            font-family: PrintersOrnaments;
-        }
-    }
-
-    @if $position == 'before' {
-        .fontface &:before {
-            content: $char;
-            font-family: PrintersOrnaments;
-        }
-    }
-
-    @if $position == 'after' {
-        .fontface &:after {
-            content: $char;
-            font-family: PrintersOrnaments;
-        }
-    }
-
-    @if $position == 'before' or $position == 'both' {
-        .fontface &:before {
-            margin-right: 0.033em;
-        }
-    }
-
-    @if $position == 'after' or $position == 'both' {
-        .fontface &:after {
-            margin-left: 0.033em;
-        }
-    }
+.theta {
+    @include modular-scale($theta, $font-base, '#{$type-scale-unit-value}', $measure);
 }
-// Title-cased, Ornamented
-// First paragraph has dropcap
+
+
+// Ornamented
 h1 {
-    text-transform: capitalize;
     @include ornamented('H');
 }
 
 //Ornamented
-h3 {
+h2 {
     @include ornamented('f');
 }
 
@@ -56,9 +23,13 @@ h3 {
 }
 
 //Uppercase, higher letter spacing
-#{headers(2,4)} {
-    text-transform: uppercase;
+#{headers()} {
+    @include smallcaps($heading-color, $bold);
     letter-spacing: 2px;
+
+    .amp {
+        font-family: $font-family;
+    }
 }
 
 //Indented Sidehead
@@ -71,9 +42,9 @@ h5 {
     font-style: italic;
 }
 
-//Run-in sidehead, Small-caps
+//Run-in sidehead
 h6 {
-    @include smallcaps($body-copy-color, $normal);
+    color: $body-copy-color;
     font-size: inherit;
     float: left;
     margin-right: 0.5em;
@@ -95,32 +66,59 @@ h6 {
     }
 }
 
+
+// Overriding typeplate
+p {
+    & + p {
+        margin-top: -1.1em; //leaves a margin of about 0.4em
+    }
+}
 // WP-typography
 .amp {
-
+    font-weight: $normal;
+    font-style: italic;
 }
 
 .caps {
-    @include smallcaps($body-copy-color, $normal);
+    @include smallcaps($body-copy-color, inherit);
 }
 
+// Not really useful,since theonly thing thatcould be of interest is titling
+// caps, and those are only in titles
 .numbers {
 
 }
 
+
 //Initial single quote
 .quo {
-
+    //margin-left:-.2em;
 }
 
 // Initial double quote
 .dquo {
-
+    //margin-left:-.40em;
 }
 
+.table-of-content {
+    ol {
+      counter-reset: section;
+      list-style-type: none;
 
-//TODO: Remove
-main {
-    max-width: 600px;
-    margin: 0 auto;
+        li {
+            counter-increment: section;
+
+            &:before  {
+                content: counters(section, ".") ". ";
+            }
+        }
+    }
+
+    a {
+        color: $body-copy-color;
+
+        &:hover {
+            color: darken($body-copy-color, 15);
+        }
+    }
 }

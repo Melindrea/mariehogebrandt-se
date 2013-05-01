@@ -1,3 +1,17 @@
-main {
+.content {
     background: inline-image('exclusive_paper.png');
+}
+
+.story  {
+    blockquote {
+        font-style: italic;
+    }
+
+    a {
+        color: $body-copy-color;
+
+        &:hover {
+            color: darken($body-copy-color, 15);
+        }
+    }
 }

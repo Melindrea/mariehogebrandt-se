@@ -4,9 +4,32 @@
 
 .site-info,
 .main-nav,
-main,
+.content,
 aside {
     @extend %inner-container;
+}
+
+.content {
+    padding-top: #{calc-gutter(2)}rem;
+}
+
+.full-width {
+    @include breakpoint(45em) {
+        .content {
+            padding: 2em;
+        }
+    }
+    @include breakpoint(55em) {
+        .content {
+            padding: 4em;
+        }
+    }
+    @include breakpoint(65em) {
+        @include container(3);
+    }
+    @include breakpoint(85em) {
+        @include container(5);
+    }
 }
 
 .content-first {
