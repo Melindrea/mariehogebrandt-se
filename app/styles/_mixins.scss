@@ -346,23 +346,21 @@
         .fontface &:before,
         .fontface &:after {
             content: $char;
-            font-family: PrintersOrnaments;
-            font-weight: normal;
-            font-style: normal;
+            @extend %ornament;
         }
     }
 
     @if $position == 'before' {
         .fontface &:before {
             content: $char;
-            font-family: PrintersOrnaments;
+            @extend %ornament;
         }
     }
 
     @if $position == 'after' {
         .fontface &:after {
             content: $char;
-            font-family: PrintersOrnaments;
+            @extend %ornament;
         }
     }
 
@@ -377,4 +375,31 @@
             margin-left: 0.033em;
         }
     }
+}
+
+%rounded {
+    @include border-radius(6px);
+}
+
+%circle {
+    @include border-radius(500px);
+}
+
+%polaroid {
+    padding: 4px;
+    padding-bottom: 12px;
+    background-color: $white;
+    border: rgba(0, 0, 0, 0.2);
+    .no-rgba & {
+        border: #f9f9f9;
+    }
+    .boxshadow & {
+        @include box-shadow(3px 3px 4px rgba(0, 0, 0, 0.15));
+    }
+}
+
+%ornament {
+    font-family: PrintersOrnaments;
+    font-weight: normal;
+    font-style: normal;
 }

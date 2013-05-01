@@ -98,6 +98,7 @@
 
 @import "layout";
 @import "typeplate/scss/typeplate";
+@import "vendor/fancybox";
 
 // Overriding smallcaps mixing from typeplate
 @mixin smallcaps($color, $font-weight) {
@@ -111,6 +112,9 @@
 @import "typography";
 
 @import "design";
+
+// Components
+@import "components/gallery";
 
 html {
     font-size: (14/16)*100%;

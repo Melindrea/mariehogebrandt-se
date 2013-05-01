@@ -104,7 +104,7 @@ module.exports = function (grunt) {
 
             // Files added here will be excluded when looking for Modernizr refs.
             excludeFiles: ['.tmp/**/*', 'dist/**/*', 'node_modules/**/*', 'test/**/*',
-            'app/components/**/*', 'wordpress/**/*']
+            'app/components/**/*', 'wordpress/**/*', 'app/vendor/**/*']
         },
         connect: {
             options: {
@@ -197,7 +197,8 @@ module.exports = function (grunt) {
                 verbose: true,
                 outputJson: true,
                 compass: true,
-                failWhenDuplicates: true
+                failWhenDuplicates: true,
+                showParserErrors: true
             },
             dist: {
                 src: ['.tmp/style.css']
