@@ -15,7 +15,7 @@ $menu-breakpoint: 40em;
 // $weight: normal !default;
 // $line-height: 1.65 !default;
 // $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
-$font-family: Georgia, serif !default;
+$font-family: 'Calendas Plus', Georgia, serif !default;
 $alternate-font-family: Georgia, serif;
 $font-family-sans: Verdana, sans-serif !default;
 
@@ -23,7 +23,7 @@ $font-family-sans: Verdana, sans-serif !default;
 //the var must be placed after your @import "typeplate.scss";
 $serif-boolean: true !default;
 
-$bold: 700;
+$bold: bold;
 $normal: 400;
 
 // $C o l o r
@@ -99,7 +99,7 @@ $theta: 12;// 12 * 0.66667
 // $T e x t  I n d e n t a t i o n
 // --------------------------------------------------------------------------
 
-// $indent-val: 1.5em !default;
+// $indent-val: 1.7em;
 
 
 // $S t a t s  T a b

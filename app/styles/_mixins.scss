@@ -328,14 +328,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-@mixin falured-gradient {
-    @include gradient-vertical-three-colors(lighten($falured, $step), $falured, 40%, darken($falured, $step));
-}
-%falured-gradient {
-    @include falured-gradient;
-}
-
-
 //-- Adjusting the colour
 @function adjust-hex( $color, $steps ) {
     @return adjust-color( $color, $red: $steps, $green: $steps, $blue: $steps);
@@ -346,5 +338,43 @@
     .lt-ie9 &,
     .no-fontface & {
         font-family: $safe-font;
+    }
+}
+
+@mixin ornamented($char: getUnicode('£'), $position: 'both') {
+    @if $position == 'both' {
+        .fontface &:before,
+        .fontface &:after {
+            content: $char;
+            font-family: PrintersOrnaments;
+            font-weight: normal;
+            font-style: normal;
+        }
+    }
+
+    @if $position == 'before' {
+        .fontface &:before {
+            content: $char;
+            font-family: PrintersOrnaments;
+        }
+    }
+
+    @if $position == 'after' {
+        .fontface &:after {
+            content: $char;
+            font-family: PrintersOrnaments;
+        }
+    }
+
+    @if $position == 'before' or $position == 'both' {
+        .fontface &:before {
+            margin-right: 0.033em;
+        }
+    }
+
+    @if $position == 'after' or $position == 'both' {
+        .fontface &:after {
+            margin-left: 0.033em;
+        }
     }
 }
