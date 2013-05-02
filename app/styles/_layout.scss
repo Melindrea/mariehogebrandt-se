@@ -14,7 +14,7 @@ aside {
     padding-top: #{calc-gutter(2)}rem;
 }
 
-.full-width {
+.content-text {
     @include breakpoint(45em) {
         .content {
             padding: 2em;
@@ -25,6 +25,15 @@ aside {
             padding: 4em;
         }
     }
+    @include breakpoint(65em) {
+        @include container(3);
+    }
+    @include breakpoint(85em) {
+        @include container(5);
+    }
+}
+
+.content-media {
     @include breakpoint(65em) {
         @include container(3);
     }
