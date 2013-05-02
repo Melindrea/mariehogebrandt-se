@@ -114,11 +114,12 @@ p {
         }
     }
 
-    a {
-        color: $body-copy-color;
+}
 
-        &:hover {
-            color: darken($body-copy-color, 15);
-        }
+a {
+    color: $body-copy-color;
+
+    &:hover {
+        color: darken($body-copy-color, 15);
     }
 }
