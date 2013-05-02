@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                 shiv: true,
                 printshiv: false,
                 load: true,
-                mq: false,
+                mq: true,
                 cssclasses: true
             },
 
@@ -308,6 +308,12 @@ module.exports = function (grunt) {
                     expand: true,
                     src: ['**'],
                     dest: '<%= yeoman.dist %>/styles/fonts'
+                },
+                {
+                    cwd: 'wordpress-plugins',
+                    expand: true,
+                    src: ['**'],
+                    dest: '<%= yeoman.wordpress %>/wp-content/plugins'
                 },
                 {
                     dest: '<%= yeoman.wordpress %>/wp-config.php',
