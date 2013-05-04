@@ -5,12 +5,13 @@
 .site-info,
 .main-nav,
 .content,
-aside {
+.sidebar,
+.inner {
     @extend %inner-container;
     @include clearfix;
 }
 
-.content {
+.inner {
     padding-top: #{calc-gutter(2)}rem;
 }
 
@@ -43,18 +44,27 @@ aside {
 }
 
 .content-first {
-    main,
-    aside {
+    .content,
+    .sidebar {
         margin-bottom: #{2*calc-gutter()}rem;
     }
     @include breakpoint(45em) {
-        main {
+        .content {
             width: calc-span(5, 8);
             float: left;
         }
-        aside {
+        .sidebar {
             width: calc-span(3, 8);
             float: left;
         }
+    }
+}
+
+.section {
+    @include clearfix;
+
+    .column {
+        width: 50%;
+        float: left;
     }
 }

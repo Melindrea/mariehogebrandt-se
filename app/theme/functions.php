@@ -80,7 +80,7 @@ function mariehogebrandt_setup()
     /**
      * Enable support for Post Formats
      */
-    add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+    add_theme_support( 'post-formats', array( 'status', 'image', 'video', 'quote', 'link' ) );
 }
 endif; // mariehogebrandt_setup
 add_action( 'after_setup_theme', 'mariehogebrandt_setup' );

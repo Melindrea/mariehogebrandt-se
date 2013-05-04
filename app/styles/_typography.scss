@@ -6,10 +6,19 @@
     @include modular-scale($theta, $font-base, '#{$type-scale-unit-value}', $measure);
 }
 
-
+%cross-head {
+    text-align: center;
+}
 // Ornamented
 h1 {
     @include ornamented('H');
+
+    + .subtitle {
+        @extend .gamma;
+        margin-top: -1.495rem;
+        font-style: italic;
+        text-align: center;
+    }
 }
 
 //Ornamented
@@ -19,7 +28,7 @@ h2 {
 
 //Cross-head
 #{headers(3)} {
-    text-align: center;
+    @extend %cross-head;
 }
 
 //Uppercase, higher letter spacing
@@ -121,5 +130,48 @@ a {
 
     &:hover {
         color: darken($body-copy-color, 15);
+    }
+}
+
+.sidebar h3 {
+    font-family: $font-family;
+    text-transform: none;
+    font-style: italic;
+    font-weight: $normal;
+    text-align: left;
+    border-bottom: 2px solid $body-copy-color;
+}
+
+
+blockquote {
+    font-style: italic;
+    padding: .5em 1.5em 0;
+    position: relative;
+
+    &:before, p:last-child:after {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.5em;
+        color: lighten($body-copy-color, 30);
+    }
+    &:before {
+        content: "“";
+        position: absolute;
+        top: -0.0625em; left: 0;
+    }
+    p:last-child:after {
+        display: inline;
+        content: "”";
+        line-height: 0;
+        vertical-align: text-bottom;
+        margin-left: .125em;
+    }
+    & + figcaption {
+        margin-left: 2em;
+        margin-top: -$indent-val;
+    }
+
+    .status & {
+        margin-right: 0;
     }
 }

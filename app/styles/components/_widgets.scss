@@ -1,0 +1,21 @@
+.widget {
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+}
+
+// Global activity
+.activity-header {
+    text-indent: 0;
+    margin-bottom: 0;
+
+    a {
+        margin-left: 5px;
+    }
+}
+
+.activity-description {
+    @extend .zeta;
+    font-style: italic;
+}
