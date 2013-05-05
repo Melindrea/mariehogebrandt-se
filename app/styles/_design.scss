@@ -1,5 +1,13 @@
-.inner {
+html {
     background: inline-image('exclusive_paper.png');
+}
+
+.inner {
+    background: rgba($lighter-green, 0.25);
+    .no-rgba {
+        background: $lighter-green;
+    }
+    border: 1px solid darken($lighter-green, 5);
 }
 
 .story  {

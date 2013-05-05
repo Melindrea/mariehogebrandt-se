@@ -15,15 +15,20 @@
     padding-top: #{calc-gutter(2)}rem;
 }
 
+.content,
+.sidebar {
+    margin-bottom: #{2*calc-gutter()}rem;
+}
+
 .content-text {
     @include breakpoint(45em) {
-        .content {
+        .content .inner {
             padding: 2em;
         }
     }
     @include breakpoint(55em) {
-        .content {
-            padding: 4em;
+        .content .inner {
+            padding: 2em 4em;
         }
     }
     @include breakpoint(65em) {
@@ -44,10 +49,6 @@
 }
 
 .content-first {
-    .content,
-    .sidebar {
-        margin-bottom: #{2*calc-gutter()}rem;
-    }
     @include breakpoint(45em) {
         .content {
             width: calc-span(5, 8);

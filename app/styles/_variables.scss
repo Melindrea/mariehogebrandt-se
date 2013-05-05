@@ -33,41 +33,17 @@ $normal: 400;
 //$heading-color: #222 !default;
 $step: 15;
 
-$beige: #d9b678; //#804718
-$lighter-beige: lighten($beige, 2*$step);
-$light-beige: lighten($beige, 20);
-$dark-beige:#55482f;
-$darker-beige:#2b2418;
 
-$white: $lighter-beige;
-$grey: #e4e5e6;
-$dark-grey: $dark-beige;
-$black: $darker-beige;
+$lighter-green: #79deb6;
+$light-green: #36d796;
+$green: #00ae68;
+$dark-green: #218358;
+$darker-green: #007144;
 
-
-$lighter-brown: #C0916A;
-$light-brown: #C0804B;
-$brown: #804718;
-$dark-brown: #604026;
-$darker-brown: #532A08;
-
-$lighter-falured: #C06A6A;
-$light-falured: #C04B4B;
-$falured: #801818;
-$dark-falured: #602626;
-$darker-falured:#530808;
-
-$lighter-purple: #B36390;
-$light-purple: #B34683;
-$purple: #671342;
-$dark-purple: #4D1E39;
-$darker-purple: #430628;
-
-$lighter-green: #63B363;
-$light-green: #46B346;
-$green: #136613;
-$dark-green: #1E4D1E;
-$darker-green: #064306;
+$white: #f8f8f8;
+$grey: #ccc;
+$dark-grey: darken($darker-green, 10);
+$black: darken($darker-green, 20);
 
 $body-copy-color: $dark-grey;
 $heading-color: $black;
