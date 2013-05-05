@@ -9,13 +9,3 @@ html {
     }
     border: 1px solid darken($lighter-green, 5);
 }
-
-.story  {
-    a {
-        color: $body-copy-color;
-
-        &:hover {
-            color: darken($body-copy-color, 15);
-        }
-    }
-}
