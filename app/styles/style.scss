@@ -34,6 +34,7 @@
 // Components
 @import "components/gallery";
 @import "components/widgets";
+@import "components/navigation";
 
 
 html {
@@ -50,8 +51,6 @@ html {
     @include breakpoint(117em) {
         font-size: (20/16)*100%;
     }
-
-    padding-top: #{calc-gutter()}em;
 
     * {
         @include box-sizing(border-box);
@@ -88,4 +87,8 @@ img {
         display: inline-block;
         margin-right: 0.5em;
     }
+}
+
+.l-container.body-header {
+    margin-top: -#{calc-gutter(2)}rem;
 }

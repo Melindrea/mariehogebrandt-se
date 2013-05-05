@@ -1,0 +1,36 @@
+nav {
+    ol,
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.nav-main {
+    text-align: center;
+    @extend .epsilon;
+    @include smallcaps($body-copy-color, $bold);
+
+    border-top: 7px double;
+    border-bottom: 7px double;
+
+    li {
+        display: inline-block;
+        // padding-right: #{calc-gutter()}rem;
+        // padding-left: #{calc-gutter()}rem;
+
+        &:after {
+            content: getUnicode('·');
+            font-weight: bold;
+        }
+
+        &:first-child:before {
+            content: getUnicode('·');
+            font-weight: bold;
+        }
+    }
+}
