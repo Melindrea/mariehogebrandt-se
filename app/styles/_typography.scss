@@ -175,3 +175,15 @@ blockquote {
         margin-right: 0;
     }
 }
+
+ul {
+    list-style-type: square;
+
+    ul {
+        list-style-type: circle;
+
+        ul {
+            list-style-type: disc;
+        }
+    }
+}

@@ -15,6 +15,8 @@
         <script src="components/jquery/jquery.js"></script>
         <!-- endbuild -->
 
+        <script src="components/golden-grid-system/GGS.js"></script><!-- remove in production -->
+
         <!-- build:js scripts/head.min.js -->
         <script src="components/modernizr/modernizr.min.js"></script>
         <script src="components/selectivizr/selectivizr.js"></script>
@@ -29,76 +31,83 @@
         </script>
     </head>
     <body>
-        <header class="l-container">
-            <nav id="nav-main" class="nav-collapse" role="navigation">
-                <ul id="menu-main" class="nav">
+        <header class="l-container body-header">
+            <ul class="contact">
+                <li><a href="https://twitter.com/Melindrea82" title="Twitter"><i class="brandico-twitter-bird"></i></a></li>
+                <li><a href="https://github.com/Melindrea" title="Github"><i class="brandico-github"></i></a></li>
+                <li><a href="http://se.linkedin.com/in/mariehogebrandt" title="LinkedIn"><i class="brandico-linkedin"></i></a></li>
+                <li><a href="http://melindrea82.deviantart.com/" title="DeviantArt"><i class="brandico-deviantart"></i></a></li>
+                <li><a href="/contact" title="Contact"><i class="entypo-mail"></i></a></li>
+            </ul>
+            <nav class="nav-collapse nav-main" role="navigation">
+                <ul>
                     <li class="menu-hem current-menu-item active">
                         <a title="Tillbaka till startsidan" href="/">Hem</a>
                     </li>
-                    <li class="menu-sokmotoroptimering dropdown" data-dropdown="dropdown">
+                    <li class="menu-sokmotoroptimering">
                         <a title="SEO &#8211; Sökmotoroptimering med Pineberry" href="/seo/">Sökmotoroptimering</a>
                     </li>
-                    <li class="menu-sokordsannonsering dropdown" data-dropdown="dropdown">
+                    <li class="menu-sokordsannonsering">
                         <a title="Sökordsannonsering med Pineberry" href="/sokordsannonsering/">Sökordsannonsering</a>
                     </li>
-                    <li class="menu-webb dropdown" data-dropdown="dropdown">
-                        Webb
-                        <ul class="submenu">
-                            <li><a href="">Sublink 1</a></li>
-                            <li><a href="">Sublink 2</a></li>
-                            <li><a href="">Sublink 3</a></li>
-                        </ul>
+                    <li class="menu-webb">
+                       <a href="#">Webb</a>
                     </li>
                     <li class="menu-kunder">
                         <a title="Läs vad våra kunder säger om oss" href="/kunder/">Kunder</a>
                     </li>
-                    <li class="menu-om-oss dropdown" data-dropdown="dropdown">
+                    <li class="menu-om-oss">
                         <a title="Läs om vem Pineberry här" href="/om/">Om oss</a>
                     </li>
                     <li class="menu-kontakta-oss">
                         <a title="Vi ser fram emot din kontakt" href="/kontakt/">Kontakta oss</a>
+                    </li>
+                    <li class="menu-search">
+                        <a href="#" title="Search"><i class="entypo-search"></i> Search</a>
                     </li>
                 </ul>
             </nav>
         </header>
         <main role="main" class="l-container content-media">
             <article class="content">
-                <h1>Images &amp; Gallery</h1>
+                <div class="inner">
+                    <h1>Images &amp; Gallery</h1>
 
-                <h2>Images</h2>
-                <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded">
-                <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle">
-                <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid">
-                <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-rounded">
-                <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-circle">
+                    <h2>Images</h2>
+                    <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded">
+                    <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle">
+                    <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid">
+                    <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-rounded">
+                    <img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-circle">
 
-                <h2>Linked Images</h2>
-                <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
-                <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
-                <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid"></a>
-                <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-rounded"></a>
-                <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-circle"></a>
+                    <h2>Linked Images</h2>
+                    <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
+                    <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
+                    <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid"></a>
+                    <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-rounded"></a>
+                    <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-polaroid img-circle"></a>
 
-                <h2>Thumbnails gallery</h2>
-                <ul class="thumbnails gallery" id="gallery-1">
-                    <li>
-                        <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
-                        <p class="wp-caption-text">I has a caption!</p>
-                    </li>
-                    <li>
-                        <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
-                        <p class="wp-caption-text">Some text..</p>
-                    </li>
-                    <li>
-                        <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png"></a>
-                    </li>
-                    <li>
-                        <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
-                    </li>
-                    <li>
-                        <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
-                    </li>
-                </ul>
+                    <h2>Thumbnails gallery</h2>
+                    <ul class="thumbnails gallery" id="gallery-1">
+                        <li>
+                            <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
+                            <p class="wp-caption-text">I has a caption!</p>
+                        </li>
+                        <li>
+                            <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
+                            <p class="wp-caption-text">Some text..</p>
+                        </li>
+                        <li>
+                            <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png"></a>
+                        </li>
+                        <li>
+                            <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-rounded"></a>
+                        </li>
+                        <li>
+                            <a href="http://placehold.it/600x400/0eafff/ffffff.png" class="thumbnail"><img alt="" src="http://placehold.it/200x200/0eafff/ffffff.png" class="img-circle"></a>
+                        </li>
+                    </ul>
+                </div>
             </article>
         </main>
 

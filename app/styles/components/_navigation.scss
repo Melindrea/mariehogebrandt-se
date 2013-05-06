@@ -20,8 +20,6 @@ nav {
 
     li {
         display: inline-block;
-        // padding-right: #{calc-gutter()}rem;
-        // padding-left: #{calc-gutter()}rem;
 
         &:after {
             content: getUnicode('·');
@@ -37,4 +35,9 @@ nav {
 
 .active {
     font-weight: $bold;
+}
+
+.breadcrumbs {
+    font-style: italic;
+    @extend .zeta;
 }
