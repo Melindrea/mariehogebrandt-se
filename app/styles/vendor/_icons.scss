@@ -21,3 +21,7 @@
 .entypo-post:before {
     content: "\2712";
 }
+
+.icon-sup {
+    @extend sup;
+}
