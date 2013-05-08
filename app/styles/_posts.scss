@@ -1,0 +1,70 @@
+.post {
+    @include clearfix;
+
+    .fontface & p:before {
+        content: "";
+    }
+}
+
+.posts {
+    h1 {
+        @include border-separator-top;
+    }
+}
+
+.post-list {
+    padding-left: 0;
+    margin-top: 0;
+    list-style: none;
+
+    li {
+        @include border-separator-top;
+        @include border-separator-bottom;
+    }
+}
+
+.post-meta {
+    @extend .eta;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.post-summary {
+    font-style: italic;
+}
+
+.wp-pagenavi {
+    text-align: center;
+
+    .pages,
+    .first,
+    .previouspostslink,
+    .extend,
+    .nextpostslink,
+    .last {
+        @extend .eta;
+    }
+
+    .pages {
+        font-style: italic;
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        &:hover,
+        &:focus {
+            background:darken($lighter-green, 5);
+        }
+    }
+
+    .current {
+        font-weight: bold;
+        @extend .delta;
+    }
+
+    span,
+    a {
+        padding: 2px 8px;
+    }
+}

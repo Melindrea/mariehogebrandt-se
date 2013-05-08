@@ -343,38 +343,46 @@
 
 @mixin ornamented($char: getUnicode('£'), $position: 'both') {
     @if $position == 'both' {
-        .fontface &:before,
-        .fontface &:after {
+        &:before,
+        &:after {
             content: $char;
             @extend %ornament;
         }
     }
 
     @if $position == 'before' {
-        .fontface &:before {
+        &:before {
             content: $char;
             @extend %ornament;
         }
     }
 
     @if $position == 'after' {
-        .fontface &:after {
+        &:after {
             content: $char;
             @extend %ornament;
         }
     }
 
     @if $position == 'before' or $position == 'both' {
-        .fontface &:before {
+        &:before {
             margin-right: 0.033em;
         }
     }
 
     @if $position == 'after' or $position == 'both' {
-        .fontface &:after {
+        &:after {
             margin-left: 0.033em;
         }
     }
+
+        .no-fontface &:before,
+        .no-fontface &:after {
+            content: '';
+            margin-left: inherit;
+            margin-right: inherit;
+        }
+
 }
 
 %rounded {
