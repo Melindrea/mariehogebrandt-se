@@ -13,8 +13,10 @@ nav,
 
 %border-stretched {
     text-align: center;
-    border-top: 7px double;
-    border-bottom: 7px double;
+    border-top: 3px double rgba($body-copy-color, 0.5);
+    border-bottom: 3px double rgba($body-copy-color, 0.5);
+    position: relative;
+    z-index: 1;
     @include smallcaps($body-copy-color, $bold);
 
     li {
@@ -47,7 +49,6 @@ nav,
 
 .site-footer {
     @extend %border-stretched;
-    //font-style: italic;
     @extend .eta;
     li:after {
         margin-left: 0.12em;
