@@ -1,4 +1,5 @@
-nav {
+nav,
+.site-footer {
     ol,
     ul {
         list-style: none;
@@ -10,13 +11,13 @@ nav {
     }
 }
 
-.nav-main {
+%border-stretched {
     text-align: center;
-    @extend .epsilon;
+    border-top: 3px double rgba($body-copy-color, 0.5);
+    border-bottom: 3px double rgba($body-copy-color, 0.5);
+    position: relative;
+    z-index: 1;
     @include smallcaps($body-copy-color, $bold);
-
-    border-top: 7px double;
-    border-bottom: 7px double;
 
     li {
         display: inline-block;
@@ -32,6 +33,10 @@ nav {
         }
     }
 }
+.nav-main {
+    @extend %border-stretched;
+    @extend .epsilon;
+}
 
 .active {
     font-weight: $bold;
@@ -40,4 +45,15 @@ nav {
 .breadcrumbs {
     font-style: italic;
     @extend .zeta;
+}
+
+.site-footer {
+    @extend %border-stretched;
+    @extend .eta;
+    li:after {
+        margin-left: 0.12em;
+    }
+    li:first-child:before {
+        margin-right: 0.12em;
+    }
 }

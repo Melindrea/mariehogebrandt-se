@@ -69,3 +69,7 @@
         float: left;
     }
 }
+
+body {
+    padding-bottom: #{calc-gutter()}rem;
+}
