@@ -1,18 +1,14 @@
-.post {
+.hentry {
     @include clearfix;
-
-    .fontface & p:before {
-        content: "";
-    }
 }
 
-.posts {
+.entries {
     h1 {
         @include border-separator-top;
     }
 }
 
-.post-list {
+.entry-list {
     padding-left: 0;
     margin-top: 0;
     list-style: none;
@@ -22,19 +18,32 @@
         @include border-separator-bottom;
     }
 }
-
-.post-meta {
+.single {
+    .entry-content {
+        @include border-separator-top;
+    }
+    .entry-footer {
+        @include border-separator-bottom;
+    }
+}
+.entry-meta {
     @extend .eta;
     font-style: italic;
     margin-bottom: 0;
 }
 
-.post-summary {
+.entry-summary {
     font-style: italic;
+
+    .fontface &:before {
+        content: "";
+    }
 }
 
 .wp-pagenavi {
+    line-height: 1;
     text-align: center;
+    margin-bottom: #{calc-gutter()}em;
 
     .pages,
     .first,
@@ -43,6 +52,7 @@
     .nextpostslink,
     .last {
         @extend .eta;
+        margin-bottom: 0;
     }
 
     .pages {
@@ -66,5 +76,12 @@
     span,
     a {
         padding: 2px 8px;
+    }
+
+    .pages {
+        display: none;
+        @include breakpoint(45em) {
+            display: inline-block;
+        }
     }
 }

@@ -82,6 +82,14 @@ h6 {
     }
 }
 
+.entry-content {
+    p:first-child,
+    .thumbnail + p {
+        @include ornamented('N', 'before');
+    }
+}
+
+
 
 // Overriding typeplate
 p {
