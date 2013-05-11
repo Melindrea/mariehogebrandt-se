@@ -1,5 +1,5 @@
 nav,
-.site-footer {
+.contentinfo {
     ol,
     ul {
         list-style: none;
@@ -48,7 +48,7 @@ nav,
     margin-bottom: 0;
 }
 
-.site-footer {
+.contentinfo {
     @extend %border-stretched;
     @extend .eta;
     li:after {
