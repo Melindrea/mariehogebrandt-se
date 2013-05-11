@@ -1,5 +1,10 @@
 .hentry {
     @include clearfix;
+
+    aside {
+        font-style: italic;
+        padding: .5em $indent-val 0;
+    }
 }
 
 .entries {
@@ -37,6 +42,26 @@
 
     .fontface &:before {
         content: "";
+    }
+}
+
+.entry-navigation {
+    list-style: none;
+    padding-left: 0;
+
+    .previous-entry {
+        @include ornamented('«', 'before');
+    }
+    .next-entry {
+        @include ornamented('»', 'before');
+    }
+    .random-entry {
+        @include ornamented('?', 'before');
+    }
+    .previous-entry:before,
+    .next-entry:before,
+    .random-entry:before {
+        font-family: $font-family;
     }
 }
 

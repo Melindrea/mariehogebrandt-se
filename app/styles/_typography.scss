@@ -127,7 +127,6 @@ p {
 .table-of-content {
     ol {
       counter-reset: section;
-      list-style-type: none;
 
         li {
             counter-increment: section;
@@ -135,6 +134,9 @@ p {
             &:before  {
                 content: counters(section, ".") ". ";
             }
+        }
+        ol {
+            padding-left: $indent-val;
         }
     }
 
@@ -160,12 +162,12 @@ a {
 
 blockquote {
     font-style: italic;
-    padding: .5em 1.5em 0;
+    padding: .5em $indent-val 0;
     position: relative;
 
     &:before, p:last-child:after {
         font-style: normal;
-        font-weight: 700;
+        font-weight: $bold;
         font-size: 2.5em;
         color: lighten($body-copy-color, 30);
     }

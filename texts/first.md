@@ -11,7 +11,7 @@ Information about me
 :   Requires a page much like the posts/articles, but certainly without comments
 
 Characters
-:   As the first step, it's quite enough to make them just normal pages
+:   As the first step, it's quite enough to make them just normal pages, with one page to link to all of them
 
 ## So, for the future?
 

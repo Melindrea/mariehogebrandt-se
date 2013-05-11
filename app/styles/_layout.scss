@@ -1,5 +1,6 @@
 .l-container {
     @extend %container;
+    @include clearfix;
 }
 
 .site-info,

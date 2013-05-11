@@ -41,32 +41,36 @@
             </ul>
             <nav class="nav-collapse nav-main" role="navigation">
                 <ul>
-                    <li class="menu-hem current-menu-item active">
-                        <a title="Tillbaka till startsidan" href="/">Hem</a>
+                    <li class="menu-hem">
+                        <a title="Back to the starting page" href="/">Home</a>
                     </li>
-                    <li class="menu-sokmotoroptimering">
-                        <a title="SEO &#8211; Sökmotoroptimering med Pineberry" href="/seo/">Sökmotoroptimering</a>
+                    <li class="menu-articles">
+                        <a title="Read articles" href="/articles.html">Articles</a>
                     </li>
-                    <li class="menu-sokordsannonsering">
-                        <a title="Sökordsannonsering med Pineberry" href="/sokordsannonsering/">Sökordsannonsering</a>
+                    <li class="menu-some-page">
+                        <a title="A text page" href="/page.html">Page</a>
                     </li>
-                    <li class="menu-webb">
-                       <a href="#">Webb</a>
+                    <li class="menu-characters">
+                        <a title="List of characters" href="/characters.html">Characters</a>
                     </li>
-                    <li class="menu-kunder">
-                        <a title="Läs vad våra kunder säger om oss" href="/kunder/">Kunder</a>
+                    <li class="menu-gallery current-menu-item active">
+                       <a href="/gallery.html">Gallery</a>
                     </li>
-                    <li class="menu-om-oss">
-                        <a title="Läs om vem Pineberry här" href="/om/">Om oss</a>
-                    </li>
-                    <li class="menu-kontakta-oss">
-                        <a title="Vi ser fram emot din kontakt" href="/kontakt/">Kontakta oss</a>
-                    </li>
-                    <li class="menu-search">
-                        <a href="#" title="Search"><i class="entypo-search"></i> Search</a>
+                    <li class="menu-contact">
+                        <a title="Contact me" href="/contact.html">Contact</a>
                     </li>
                 </ul>
             </nav>
+            <div class="breadcrumbs">
+                <span xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <span typeof="v:Breadcrumb">
+                        <a href="/" rel="v:url" property="v:title">Home</a>
+                    </span> »
+                    <span typeof="v:Breadcrumb">
+                        <span class="breadcrumb_last" property="v:title">Gallery</span>
+                    </span>
+                </span>
+            </div>
         </header>
         <main role="main" class="l-container content-media">
             <article class="content">
@@ -111,7 +115,13 @@
             </article>
         </main>
 
-
+        <footer class="site-footer l-container" role="contentinfo">
+            <ul>
+                <li class="copyright"><a href="http://mariehogebrandt.se">&copy; 2013, Marie Hogebrandt</a></li>
+                <li class="github-link"><a href="https://github.com/Melindrea/mariehogebrandt-se"><i class="fontawesome-github"></i> Fork on Github</a></li>
+                <li class="colophon"><a href="/colophon.html">Colophon</a></li>
+            </ul>
+        </footer>
         <!-- build:js scripts/main.min.js -->
         <script src="components/jquery-mousewheel/jquery.mousewheel.js"></script>
         <script src="components/fancybox/source/jquery.fancybox.js"></script>
