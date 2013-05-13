@@ -93,5 +93,27 @@ img {
     li {
         display: inline-block;
         margin-right: 0.5em;
+
+        &.brand {
+            display: block;
+        }
+    }
+}
+
+.site-title {
+    max-height: 100px;
+    @include breakpoint(24em) {
+        max-height: 200px;
+    }
+}
+
+.brand {
+    a {
+        @include opacity(0.8);
+        @include single-transition(opacity, 0.5s, ease-in-out, 0);
+
+        &:hover {
+            @include opacity(9);
+        }
     }
 }

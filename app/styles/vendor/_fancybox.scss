@@ -36,7 +36,7 @@
     z-index: 8030;
 
     .fancybox-skin {
-        @include box-shadow(3px 3px 4px rgba(0, 0, 0, 0.15));
+        @extend %standard-box-shadow;
     }
 }
 

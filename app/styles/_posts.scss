@@ -1,5 +1,5 @@
 .hentry {
-    @include clearfix;
+    @extend %clearfix;
 
     aside {
         font-style: italic;

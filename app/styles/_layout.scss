@@ -1,6 +1,6 @@
 .l-container {
     @extend %container;
-    @include clearfix;
+    @extend %clearfix;
 }
 
 .site-info,
@@ -9,7 +9,7 @@
 .sidebar,
 .inner {
     @extend %inner-container;
-    @include clearfix;
+    @extend %clearfix;
 }
 
 .inner {
@@ -63,7 +63,7 @@
 }
 
 .section {
-    @include clearfix;
+    @extend %clearfix;
 
     .column {
         width: 50%;

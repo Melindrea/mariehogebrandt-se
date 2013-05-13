@@ -393,6 +393,9 @@
     @include border-radius(500px);
 }
 
+%standard-box-shadow {
+    @include box-shadow(3px 3px 4px rgba(0, 0, 0, 0.15));
+}
 %polaroid {
     padding: 8px;
     padding-bottom: 12px;
@@ -401,13 +404,15 @@
     .no-rgba & {
         border: #f9f9f9;
     }
-    .boxshadow & {
-        @include box-shadow(3px 3px 4px rgba(0, 0, 0, 0.15));
-    }
+    @extend %standard-box-shadow;
 }
 
 %ornament {
     font-family: PrintersOrnaments;
     font-weight: normal;
     font-style: normal;
+}
+
+%clearfix {
+    @include clearfix;
 }
