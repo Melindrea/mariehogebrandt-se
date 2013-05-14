@@ -43,6 +43,11 @@ The various ornaments on headers and paragraphs, as well as the different styles
 
 For some extra styling of typographical elements (such as wrapping ampersands in a `span` with the class `amp`) I use an updated version of [WP-Typography](https://github.com/Melindrea/wp-typography), originally created by [Jeffrey D. King](http://kingdesk.com/).
 
+## Other design concerns
+[Exclusive Paper](http://subtlepatterns.com/exclusive-paper/) from Subtle Patterns
+:   Background for the site, and overall Subtle Patterns is a nice site
+
+
 ## Development
 
 The creation of this theme is an experiment. It has been based on testing some of the newest and most interesting tools out there, as well as using tried-and-true methods.
@@ -79,3 +84,6 @@ The creation of this theme is an experiment. It has been based on testing some o
 
 [CSSCSS](http://zmoazeni.github.io/csscss/)
 :   A ruby gem (with a grunt wrapper) for checking CSS for duplicate styles, as one part of a better (and cleaner) codebase
+
+[Color Scheme Designer](http://colorschemedesigner.com/)
+:   A good tool for prototyping colours that go well together
