@@ -10,4 +10,8 @@ $(function () {
             $('.thumbnail').removeClass('fancybox');
         }
     });
+
+    if (!Modernizr.svg) {
+        $('.brand img').attr('src', '/images/logo.png');
+    }
 });
