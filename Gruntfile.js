@@ -16,12 +16,20 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'wordpress/wp-content/themes/mariehogebrandt',
-        wordpress: 'wordpress'
+        dist: 'wordpress/wp-content/themes/mariehogebrandt'
+    },
+    wordpressConfig = {
+        path: 'wordpress',
+        plugins: [
+            'wordpress-seo',
+            'wp-typography'
+        ]
+
     };
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        wordpress: wordpressConfig,
         watch: {
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -149,7 +157,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dist: ['.tmp', '<%= yeoman.dist %>/*', '<%= yeoman.wordpress %>/*'],
+            dist: ['.tmp', '<%= yeoman.dist %>/*', '<%= wordpress.path %>/*'],
             server: '.tmp'
         },
         jshint: {
@@ -301,7 +309,7 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/components/wordpress',
                     expand: true,
                     src: ['**'],
-                    dest: '<%= yeoman.wordpress %>'
+                    dest: '<%= wordpress.path %>'
                 },
                 {
                     cwd: '<%= yeoman.app %>/styles/fonts',
@@ -313,10 +321,10 @@ module.exports = function (grunt) {
                     cwd: 'wordpress-plugins',
                     expand: true,
                     src: ['**'],
-                    dest: '<%= yeoman.wordpress %>/wp-content/plugins'
+                    dest: '<%= wordpress.path %>/wp-content/plugins'
                 },
                 {
-                    dest: '<%= yeoman.wordpress %>/wp-config.php',
+                    dest: '<%= wordpress.path %>/wp-config.php',
                     src: ['wp-config.php']
                 },
                 {
