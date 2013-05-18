@@ -131,3 +131,4 @@ class Roots_Vcard_Widget extends WP_Widget {
     }
   }
 }
+require( get_template_directory() . '/lib/widgets/global-activity.php' );

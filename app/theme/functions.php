@@ -14,4 +14,6 @@ require_once locate_template('/lib/comments.php');        // Custom comments mod
 require_once locate_template('/lib/rewrites.php');        // URL rewriting for assets
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
-
+require_once locate_template('/lib/widgets/global-activity.php');         // Scripts and stylesheets
+require_once locate_template('/lib/feed.php' );
+require_once locate_template('/lib/view.php' );
