@@ -13,6 +13,7 @@
     "wordpress-seo": "git://github.com/jdevalk/wordpress-seo.git"
   },
   "devDependencies": {
-    "golden-grid-system": "latest"
+    "golden-grid-system": "latest",
+    "roots": "git://github.com/retlehs/roots.git#~6.4.0"
   }
 }
