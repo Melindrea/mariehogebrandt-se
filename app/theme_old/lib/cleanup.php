@@ -81,20 +81,6 @@ function roots_language_attributes() {
 add_filter('language_attributes', 'roots_language_attributes');
 
 /**
- * Manage output of wp_title()
- */
-function roots_wp_title($title) {
-  if (is_feed()) {
-    return $title;
-  }
-
-  $title .= get_bloginfo('name');
-
-  return $title;
-}
-add_filter('wp_title', 'roots_wp_title', 10);
-
-/**
  * Clean up output of stylesheet <link> tags
  */
 function roots_clean_style_tag($input) {
@@ -138,17 +124,46 @@ add_filter('body_class', 'roots_body_class');
  * @author Scott Walkinshaw <scott.walkinshaw@gmail.com>
  */
 function roots_root_relative_url($input) {
-  $output = wp_make_link_relative($input);
+  // Fix for site_url() != home_url()
+  if (!is_admin() && site_url() != home_url() && stristr($input, 'wp-includes') === false) {
+    $input = str_replace(site_url(), '', $input);
+  }
+
+  $output = preg_replace_callback(
+    '!(https?://[^/|"]+)([^"]+)?!',
+    create_function(
+      '$matches',
+      // If full URL is home_url("/") and this isn't a subdir install, return a slash for relative root
+      'if (isset($matches[0]) && $matches[0] === home_url("/") && str_replace("http://", "", home_url("/", "http"))==$_SERVER["HTTP_HOST"]) { return "/";' .
+      // If domain is equal to home_url("/"), then make URL relative
+      '} elseif (isset($matches[0]) && strpos($matches[0], home_url("/")) !== false) { return $matches[2];' .
+      // If domain is not equal to home_url("/"), do not make external link relative
+      '} else { return $matches[0]; };'
+    ),
+    $input
+  );
+
+  // detect and correct for subdir installs
+  if ($subdir = parse_url(home_url(), PHP_URL_PATH)) {
+    if (substr($output, 0, strlen($subdir)) == (substr($output, strlen($subdir), strlen($subdir)))) {
+      $output = substr($output, strlen($subdir));
+    }
+  }
+
   return $output;
 }
 
 function roots_enable_root_relative_urls() {
-  return !(is_admin() || in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) && current_theme_supports('root-relative-urls');
+  return !(is_admin() || in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')));
 }
 
 if (roots_enable_root_relative_urls()) {
   $root_rel_filters = array(
     'bloginfo_url',
+    'theme_root_uri',
+    'stylesheet_directory_uri',
+    'template_directory_uri',
+    'plugins_url',
     'the_permalink',
     'wp_list_pages',
     'wp_list_categories',
@@ -324,10 +339,9 @@ function roots_gallery($attr) {
 
   return $output;
 }
-if (current_theme_supports('bootstrap-gallery')) {
-  remove_shortcode('gallery');
-  add_shortcode('gallery', 'roots_gallery');
-}
+remove_shortcode('gallery');
+add_shortcode('gallery', 'roots_gallery');
+
 
 /**
  * Remove unnecessary dashboard widgets
@@ -374,21 +388,6 @@ function roots_remove_default_description($bloginfo) {
 }
 add_filter('get_bloginfo_rss', 'roots_remove_default_description');
 
-/**
- * Allow more tags in TinyMCE including <iframe> and <script>
- */
-function roots_change_mce_options($options) {
-  $ext = 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src],script[charset|defer|language|src|type]';
-
-  if (isset($initArray['extended_valid_elements'])) {
-    $options['extended_valid_elements'] .= ',' . $ext;
-  } else {
-    $options['extended_valid_elements'] = $ext;
-  }
-
-  return $options;
-}
-add_filter('tiny_mce_before_init', 'roots_change_mce_options');
 
 /**
  * Add additional classes onto widgets
@@ -465,12 +464,12 @@ function roots_request_filter($query_vars) {
 }
 add_filter('request', 'roots_request_filter');
 
-/**
- * Tell WordPress to use searchform.php from the templates/ directory
- */
-function roots_get_search_form($argument) {
-  if ($argument === '') {
-    locate_template('/templates/searchform.php', true, false);
-  }
-}
-add_filter('get_search_form', 'roots_get_search_form');
+// /**
+//  * Tell WordPress to use searchform.php from the templates/ directory
+//  */
+// function roots_get_search_form($argument) {
+//   if ($argument === '') {
+//     locate_template('/templates/searchform.php', true, false);
+//   }
+// }
+// add_filter('get_search_form', 'roots_get_search_form');

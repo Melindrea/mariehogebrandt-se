@@ -1,46 +1,21 @@
-<?php
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package Mariehogebrandt
- */
+<?php get_template_part('templates/page', 'header'); ?>
 
-get_header(); ?>
+<?php if (!have_posts()) : ?>
+  <div class="alert">
+    <?php _e('Sorry, no results were found.', 'roots'); ?>
+  </div>
+  <?php get_search_form(); ?>
+<?php endif; ?>
 
-    <div id="primary" class="content-area">
-        <div id="content" class="site-content" role="main">
-        <?php echo get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip'; ?>
-        <?php if ( have_posts() ) : ?>
+<?php while (have_posts()) : the_post(); ?>
+  <?php get_template_part('templates/content', get_post_format()); ?>
+<?php endwhile; ?>
 
-            <?php /* Start the Loop */ ?>
-            <?php while ( have_posts() ) : the_post(); ?>
-
-                <?php
-                    /* Include the Post-Format-specific template for the content.
-                     * If you want to overload this in a child theme then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                     */
-                    get_template_part( 'content', get_post_format() );
-                ?>
-
-            <?php endwhile; ?>
-
-            <?php mariehogebrandt_content_nav( 'nav-below' ); ?>
-
-        <?php else : ?>
-
-            <?php get_template_part( 'no-results', 'index' ); ?>
-
-        <?php endif; ?>
-
-        </div><!-- #content -->
-    </div><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php if ($wp_query->max_num_pages > 1) : ?>
+  <nav class="post-nav">
+    <ul class="pager">
+      <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
+      <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
+    </ul>
+  </nav>
+<?php endif; ?>
