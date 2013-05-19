@@ -182,7 +182,7 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp',
+                cssDir: '.tmp/styles',
                 imagesDir: '<%= yeoman.app %>/styles/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
@@ -253,22 +253,10 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/style.css': [
-                        '.tmp/{,*/}*.css',
+                    '<%= yeoman.dist %>/styles/site.css': [
+                        '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
-                },
-                options: {
-                    banner: '/* \n' +
-                    'Theme Name:         Marie Hogebrandt \n' +
-                    'Theme URI:          http://mariehogebrandt.se/ \n' +
-                    'Description:        A handcrafted theme for MarieHogebrandt.se with backend very loosely based on Roots. \n' +
-                    'Version:            0.0.1 \n' +
-                    'Author:             Marie Hogebrandt\n' +
-                    'Author URI:         http://mariehogebrandt.se/ \n' +
-                    'License:            MIT License \n' +
-                    'License URI:        http://opensource.org/licenses/MIT \n' +
-                    '*/'
                 }
             }
         },
@@ -326,6 +314,10 @@ module.exports = function (grunt) {
                 {
                     dest: '<%= wordpress.path %>/wp-config.php',
                     src: ['wp-config.php']
+                },
+                {
+                    dest: '<%= yeoman.dist %>/style.css',
+                    src: ['style.css']
                 },
                 {
                     dest: '<%= yeoman.dist %>/config.json',

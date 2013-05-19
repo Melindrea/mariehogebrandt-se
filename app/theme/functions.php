@@ -1,9 +1,8 @@
 <?php
-// TODO: Load classes/files
-
 /**
  * Roots includes
  */
+require_once locate_template('/lib/vendor.php');           // Vendor classes/scfunctions
 require_once locate_template('/lib/utils.php');           // Utility functions
 require_once locate_template('/lib/init.php');            // Initial theme setup and constants
 require_once locate_template('/lib/sidebar.php');         // Sidebar class
@@ -14,4 +13,6 @@ require_once locate_template('/lib/comments.php');        // Custom comments mod
 require_once locate_template('/lib/rewrites.php');        // URL rewriting for assets
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
-
+require_once locate_template('/lib/widgets/global-activity.php');         // Scripts and stylesheets
+require_once locate_template('/lib/feed.php' );
+require_once locate_template('/lib/view.php' );

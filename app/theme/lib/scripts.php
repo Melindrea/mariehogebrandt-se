@@ -15,14 +15,16 @@
  * 4. /theme/assets/js/main.js    (in footer)
  */
 function roots_scripts() {
-  if (is_single() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
+    wp_register_style( 'site', get_template_directory_uri() . '/styles/site.css', false, null);
+    wp_enqueue_style( 'site' );
 
-  wp_register_script('modernizr', get_template_directory_uri() . '/scripts/head.min.js', false, null, false);
-  wp_register_script('main', get_template_directory_uri() . '/scripts/main.min.js', false, null, true);
-  wp_enqueue_script('jquery');
-  wp_enqueue_script('modernizr');
-  wp_enqueue_script('main');
+    if (is_single() && comments_open() && get_option('thread_comments')) {
+      wp_enqueue_script('comment-reply');
+    }
+
+    wp_register_script('head', get_template_directory_uri() . '/scripts/head.min.js', array('jquery'), null, false);
+    wp_register_script('mariehogebrandt_main', get_template_directory_uri() . '/scripts/main.min.js',  array('jquery'), null, true);
+    wp_enqueue_script('head');
+    wp_enqueue_script('mariehogebrandt_main');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
