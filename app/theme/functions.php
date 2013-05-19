@@ -1,6 +1,4 @@
 <?php
-// TODO: Load classes/files
-
 /**
  * Roots includes
  */
