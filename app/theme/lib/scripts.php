@@ -22,10 +22,9 @@ function roots_scripts() {
       wp_enqueue_script('comment-reply');
     }
 
-    wp_register_script('modernizr', get_template_directory_uri() . '/scripts/head.min.js', false, null, false);
-    wp_register_script('mariehogebrandt_main', get_template_directory_uri() . '/scripts/main.min.js', false, null, true);
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('modernizr');
+    wp_register_script('head', get_template_directory_uri() . '/scripts/head.min.js', array('jquery'), null, false);
+    wp_register_script('mariehogebrandt_main', get_template_directory_uri() . '/scripts/main.min.js',  array('jquery'), null, true);
+    wp_enqueue_script('head');
     wp_enqueue_script('mariehogebrandt_main');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

@@ -308,6 +308,10 @@ module.exports = function (grunt) {
                     src: ['wp-config.php']
                 },
                 {
+                    dest: '<%= yeoman.dist %>/style.css',
+                    src: ['style.css']
+                },
+                {
                     dest: '<%= yeoman.dist %>/config.json',
                     src: ['wordpress.json']
                 },

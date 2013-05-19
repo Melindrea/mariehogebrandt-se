@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "golden-grid-system": "latest",
-    "roots": "git://github.com/retlehs/roots.git#~6.4.0"
+    "roots": "git://github.com/retlehs/roots.git#~6.4.0",
+    "WP-MarkDown": "git://github.com/stephenharris/WP-MarkDown.git#~1.1.6"
   }
 }

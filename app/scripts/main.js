@@ -1,4 +1,4 @@
-$(function () {
+jQuery(function ($) {
     'use strict';
     // By binding them to both load and resize, it works on the window
     $(window).on('load resize', function () {
