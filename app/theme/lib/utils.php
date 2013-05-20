@@ -95,3 +95,41 @@ function is_element_empty($element) {
   $element = trim($element);
   return empty($element) ? false : true;
 }
+
+function mh_the_post_thumbnail()
+{
+    $largeImageUrl = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+    $featuredImage = get_the_post_thumbnail();
+    $return = '<a href="';
+    $return .= $largeImageUrl[0];
+    $return .= '" class="thumbnail featured-image">';
+    $return .= $featuredImage.'</a>'.PHP_EOL;
+
+    echo $return;
+}
+
+function mh_latest_status()
+{
+    $args = array(
+        'numberposts' => '1',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'post_format',
+                'field' => 'slug',
+                'terms' => 'post-format-status',
+                'operator' => 'IN'
+            ),
+        ),
+    );
+
+    $latestStatus = wp_get_recent_posts($args, OBJECT);
+    $latestStatus = $latestStatus[0];
+    $content = $latestStatus->post_content;
+
+    if (count($latestStatus) > 0) {
+        $view = View::factory('status')
+        ->bind('content', $content)
+        ->bind('time', strtotime($latestStatus->post_date))
+        ->render();
+    }
+}

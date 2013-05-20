@@ -8,13 +8,15 @@
     get_template_part('templates/header');
 ?>
 
-    <div class="l-container content-text" role="document">
+    <div class="<?php echo roots_wrapper_classes('l-container'); ?>" role="document">
         <main class="content" role="main">
             <?php include roots_template_path(); ?>
         </main>
         <?php if (roots_display_sidebar()) : ?>
         <aside class="sidebar widget-area" role="complementary">
+            <div class="inner">
             <?php include roots_sidebar_path(); ?>
+            </div>
         </aside><!-- /.sidebar -->
         <?php endif; ?>
     </div><!-- /.l-container -->

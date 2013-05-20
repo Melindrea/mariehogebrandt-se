@@ -14,23 +14,19 @@ define('POST_EXCERPT_LENGTH', 40);
 /**
  * .main classes
  */
-function roots_main_class() {
-  if (roots_display_sidebar()) {
-    // Classes on pages with the sidebar
-    $class = 'span8';
-  } else {
-    // Classes on full width pages
-    $class = 'span12';
-  }
+function roots_wrapper_classes($classes) {
+    if ( ! is_array($classes)) {
+        $classes = array($classes);
+    }
+    if (roots_display_sidebar()) {
+        // Classes on pages with the sidebar
+        $classes[] = 'content-first';
+    } else {
+        // Classes on full width pages
+        $classes[] = 'content-text';
+    }
 
-  return $class;
-}
-
-/**
- * .sidebar classes
- */
-function roots_sidebar_class() {
-  return 'span4';
+    return join(' ', $classes);
 }
 
 /**
@@ -52,7 +48,6 @@ function roots_display_sidebar() {
      */
     array(
       'is_404',
-      'is_front_page'
     ),
     /**
      * Page template checks (via is_page_template())
