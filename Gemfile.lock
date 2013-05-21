@@ -17,7 +17,7 @@ GEM
     fssm (0.2.10)
     parslet (1.5.0)
       blankslate (~> 2.0)
-    sass (3.2.8)
+    sass (3.2.9)
     sass-getunicode (1.0)
       sass (>= 3)
 

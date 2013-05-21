@@ -14,9 +14,7 @@
 }
 
 .entry-list {
-    padding-left: 0;
-    margin-top: 0;
-    list-style: none;
+    @extend %list-reset;
 
     li {
         @include border-separator-top;

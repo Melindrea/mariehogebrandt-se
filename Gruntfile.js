@@ -209,7 +209,7 @@ module.exports = function (grunt) {
                 showParserErrors: true
             },
             dist: {
-                src: ['.tmp/style.css']
+                src: ['.tmp/styles/site.css', '.tmp/styles/rtl.css']
             }
         },
         // not used since Uglify task does concat,
