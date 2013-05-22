@@ -24,7 +24,7 @@ class Feed_Codepen extends Feed
         }
 
         $url = $this->apiURL.'/'.$this->credentials['user'];
-        $objects = Feed::get($url);
+        $objects = $this->get($url);
 
         if ($objects->status->message !== 'ok') {
             return array();
@@ -38,7 +38,7 @@ class Feed_Codepen extends Feed
             $temp['link'] = $pen->url->pen;
             $temp['description'] = $pen->description;
 
-            $penDetails = Feed::get($url.'/pen/'.$pen->hash);
+            $penDetails = $this->get($url.'/pen/'.$pen->hash);
             $penDetails = $penDetails->content->pen;
             $created = strtotime($penDetails->created_at);
             $updated = strtotime($penDetails->updated_at);

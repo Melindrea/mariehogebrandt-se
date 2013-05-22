@@ -4,16 +4,22 @@ if( !class_exists( 'WP_Http' ) )
 
 require( get_template_directory() . '/lib/feed/github.php' );
 require( get_template_directory() . '/lib/feed/codepen.php' );
-class Feed
+require( get_template_directory() . '/lib/feed/deviantart.php' );
+abstract class Feed
 {
     const OBJECTS = 0;
     const JSON = 1;
-    public function factory($feed)
+
+    public abstract function setUser($user);
+    public abstract function getUser();
+
+    public static function factory($feed)
     {
         $class = 'Feed_'.$feed;
         return new $class;
     }
 
+    // JSON-api
     public function get($url, $returnType = self::OBJECTS)
     {
         $request = new WP_Http;
@@ -52,6 +58,13 @@ class Feed
         return $return;
     }
 
+    public function getRSS($url)
+    {
+        $doc = new DOMDocument();
+        $doc->load($url);
+
+        return $doc;
+    }
     public static function sort($a, $b)
     {
         $aDate = strtotime($a['date']);

@@ -24,7 +24,7 @@ class Feed_Github extends Feed
         }
 
         $url = $this->apiURL.'/users/'.$this->credentials['user'].'/repos?type?public&sort=updated&type=owner';
-        $objects = array_filter(Feed::get($url), function ($item) {
+        $objects = array_filter($this->get($url), function ($item) {
             return ( ! $item->fork);
         });
 
@@ -52,7 +52,7 @@ class Feed_Github extends Feed
         }
 
         $url = $this->apiURL.'/users/'.$this->credentials['user'].'/gists?type?public&sort=updated&type=owner';
-        $objects = Feed::get($url);
+        $objects = $this->get($url);
 
         $gists = array();
         foreach ($objects as $gist) {
