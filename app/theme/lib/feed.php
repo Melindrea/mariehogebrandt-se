@@ -21,7 +21,11 @@ class Feed
 
         $return = array();
 
-        $response = $result['response']['code'];
+        if (is_wp_error($result)) {
+            $response = false;
+        } else {
+            $response = $result['response']['code'];
+        }
         if ($response !== 200) {
             switch ($returnType) {
                 case self::JSON:

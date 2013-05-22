@@ -54,10 +54,13 @@ function roots_display_sidebar() {
      * Any of these page templates that return true won't show the sidebar
      */
     array(
-      'template-custom.php'
+      'template-custom.php',
     )
   );
 
+  if (is_page() && !is_front_page() && !is_page_template()) {
+    return false;
+  }
   return $sidebar_config->display;
 }
 

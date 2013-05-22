@@ -1,5 +1,5 @@
 <?php
-class GlobalActivityWidget
+class GlobalActivityWidget extends WP_Widget
 {
     protected $data;
     public function __construct()
@@ -23,8 +23,10 @@ class GlobalActivityWidget
 
     public function render()
     {
+        $data = $this->data;
+        array_splice($data, 10);
         $view = View::factory('global-activity-list')
-        ->bind('items', $this->data)
+        ->bind('items', $data)
         ->render();
     }
     protected function recentPostsAndLinks()
