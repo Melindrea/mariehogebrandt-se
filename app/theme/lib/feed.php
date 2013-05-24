@@ -28,7 +28,7 @@ abstract class Feed
         $return = array();
 
         if (is_wp_error($result)) {
-            $response = false;
+            $response = 500;
         } else {
             $response = $result['response']['code'];
         }
@@ -40,6 +40,7 @@ abstract class Feed
 
                 case self::OBJECTS:
                 default:
+                    return array();
                     break;
             }
         }

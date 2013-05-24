@@ -14,10 +14,23 @@ class View
     {
         // Should be some error handling here - what happens
         // if they try to give me the wrong file?
-        $this->template = get_template_directory();
-        $this->template .= '/views/'.$template.'.php';
+        $themeTemplate = get_stylesheet_directory();
+        $dirTemplate = dirname(__FILE__);
+        $parentTemplateArray = explode('/', $dirTemplate);
+        array_pop($parentTemplateArray);
+        $parentTemplate = join('/', $parentTemplateArray);
 
-        // Check if it exists, if not throw a file-not-found exception
+        $file = '/views/'.$template.'.php';
+
+        if (file_exists($themeTemplate.$file)) {
+            $this->template = $themeTemplate.$file;
+        } elseif (file_exists($dirTemplate.$file)) {
+            $this->template = $dirTemplate.$file;
+        } elseif (file_exists($parentTemplate.$file)) {
+            $this->template = $parentTemplate.$file;
+        } else {
+            //Error, throw an exception!
+        }
     }
 
     public function bind($arg1, $arg2 = false)
