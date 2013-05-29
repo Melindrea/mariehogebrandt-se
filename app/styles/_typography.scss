@@ -76,9 +76,11 @@ h6 {
 }
 
 //First paragraph Ornamented in main
-main #{headers(5)} {
-    + p {
-        @include ornamented('N', 'before');
+main {
+    #{headers(5)} {
+        + p {
+            @include ornamented('N', 'before');
+        }
     }
 }
 
