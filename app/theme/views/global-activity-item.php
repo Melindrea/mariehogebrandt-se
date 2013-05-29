@@ -4,7 +4,7 @@
             <a href="<?php echo $link; ?>" ><?php echo $name; ?></a>
         </h4>
         <?php if ($description !== '') : ?>
-        <div class="activity-description"><?php echo $description; ?></div>
+        <p class="activity-description"><?php echo $description; ?></p>
         <?php endif; ?>
     </article>
 </li>
