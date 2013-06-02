@@ -1,3 +1,122 @@
 form {
     margin-bottom: #{calc-gutter(2)}rem;
 }
+
+input,
+textarea {
+    padding: 2px 10px;
+    border: solid 1px #c9c9c9;
+    outline: 0;
+    width: 200px;
+    background: rgba(#fff, 0.9);
+    @include border-radius(5px);
+}
+
+textarea {
+    width: 400px;
+    max-width: 100%;
+    height: 150px;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+    border-color: darken(#c9c9c9, 15);
+    @include box-shadow(inset rgba($green, 0.7) 1px 1px 10px);
+}
+
+label {
+    margin-left: 10px;
+    color: #999;
+}
+
+input[type=submit] {
+    width: auto;
+    padding: 9px 15px;
+    background: $light-green;
+    border: 0;
+
+    &:hover,
+    &:focus {
+        @include box-shadow(rgba($green, 0.7) 1px 1px 10px);
+        border: 1px solid $green;
+    }
+}
+
+.wpcf7 {
+    margin: 0;
+    padding: 0;
+
+    .ajax-loader {
+        border: none;
+        vertical-align: middle;
+        margin-left: 4px;
+    }
+
+    .placeheld {
+        color: lighten($body-copy-color, 15);
+    }
+}
+
+.wpcf7-response-output {
+    margin: 2em 0.5em 1em;
+    padding: 0.2em 1em;
+    font-style: italic;
+}
+
+.wpcf7-mail-sent-ok {
+    border: 2px solid $green;
+}
+
+.wpcf7-spam-blocked {
+    border: 2px solid #ffa500;
+}
+
+.wpcf7-validation-errors,
+.wpcf7-mail-sent-ng {
+    border: 2px solid #f00;
+}
+
+.wpcf7-form-control-wrap {
+    position: relative;
+}
+
+%not-valid-tip {
+    font-size: 75%;
+    font-style: italic;
+}
+
+.wpcf7-not-valid-tip {
+    @extend %not-valid-tip;
+    left: 0;
+    top: -50%;
+    border: 1px solid #f00;
+    position: absolute;
+    z-index: 100;
+    background: #e5e5e5;
+    width: 280px;
+    padding: 10px;
+    @include box-shadow(rgba(#f00, 0.7) 1px 1px 10px);
+    @include border-radius(5px);
+}
+
+
+.wpcf7-not-valid-tip-no-ajax {
+    @extend %not-valid-tip;
+    color: #f00;
+    display: block;
+}
+
+.wpcf7-list-item {
+    margin-left: 0.5em;
+}
+
+.wpcf7-display-none {
+    display: none;
+}
+
+
+.wpcf7-not-valid {
+    @include box-shadow(inset rgba(#f00, 0.7) 1px 1px 10px);
+}

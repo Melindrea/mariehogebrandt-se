@@ -386,9 +386,9 @@ module.exports = function (grunt) {
         'clean:server',
         'compass',
         'connect:test',
-        'mocha',
-        'copy:theme',
-        'phpunit'
+        'mocha'//,
+        // 'copy:theme',
+        // 'phpunit'
     ]);
 
     grunt.registerTask('build', [

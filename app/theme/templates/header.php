@@ -1,6 +1,6 @@
 <header class="l-container site-header" role="banner">
     <?php if (get_field('contact_information', 'option')) : ?>
-    <ul class="contact">
+    <ul class="header-contact">
     <?php while (has_sub_field('contact_information', 'option')) : ?>
         <li<?php if (get_sub_field('li_class')) : ?> class="<?php echo the_sub_field('li_class'); ?>"<?php endif; ?>>
             <a href="<?php echo the_sub_field('link'); ?>"<?php if (get_sub_field('li_title')) : ?> title="<?php echo the_sub_field('link_title'); ?>"<?php endif; ?>>
@@ -16,6 +16,8 @@
           wp_nav_menu(array('theme_location' => 'primary_navigation'));
         endif;
       ?>
-
     </nav>
+    <?php if (function_exists('yoast_breadcrumb') && !is_front_page()) {
+    yoast_breadcrumb('<div class="breadcrumbs">','</div>');
+    } ?>
 </header>
