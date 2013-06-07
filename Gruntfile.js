@@ -347,11 +347,6 @@ module.exports = function (grunt) {
                 colors: true
             }
         },
-        bower: {
-            all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
-            }
-        },
         bumpup: {
             files: ['package.json', 'component.json', 'composer.json']
         }
@@ -403,7 +398,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        'phpunit',
+        //'phpunit',
         'usemin'
     ]);
     grunt.registerTask('theme', [

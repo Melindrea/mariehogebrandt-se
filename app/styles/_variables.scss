@@ -18,6 +18,7 @@ $menu-breakpoint: 40em;
 $font-family: 'Calendas Plus', Georgia, serif !default;
 $alternate-font-family: Georgia, serif;
 $font-family-sans: Verdana, sans-serif !default;
+$font-family-monospace: 'Source Code Pro', monospace !default;
 
 //the serif boolean var can be redeclared from another stylesheet. However
 //the var must be placed after your @import "typeplate.scss";
@@ -45,6 +46,12 @@ $light-blue: #3f8fd2;
 $blue: #0b5fa5;
 $dark-blue: #25557c;
 $darker-blue: #0436cb;
+
+$lighter-orange: #ff9d73;
+$light-orange: #ff7940;
+$orange: #ff4c00;
+$dark-orange: #bf5b30;
+$darker-orange: #a63100;
 
 $white: #f8f8f8;
 $grey: #ccc;

@@ -10,6 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' rel='stylesheet'>
         <link rel="stylesheet" href="styles/site.css">
         <!-- build:js scripts/jquery.min.js -->
         <script src="components/jquery/jquery.js"></script>
@@ -20,7 +21,6 @@
         <!-- build:js scripts/head.min.js -->
         <script src="components/modernizr/modernizr.min.js"></script>
         <script src="components/selectivizr/selectivizr.js"></script>
-        <script src="components/WP-MarkDown/js/prettify.js"></script>
         <!-- endbuild -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -69,39 +69,37 @@
                         <div class="subtitle">Developer, Role player, Idealist
                         </div>
                     </header>
-                    <div class="section">
-                    <a href="" class="thumbnail featured-image"><img alt="" src="http://placehold.it/200x300/0eafff/ffffff.png" height="300" width="200" class="wp-post-image attachment-thumbnail"></a>
-                    <p>I live in Sweden and work at <a href="http://www.pineberry.com" rel="external">Pineberry</a> in Stockholm as a developer (mainly PHP/WordPress, some Python) since 2012. </p>
+                    <pre class="prettyprint prettyprinted" style=""><code>
+<span class="com"># Snazzy git prompt</span><span class="pln">
 
-                    <p>In my spare time I explore the new and cool things that pop up every so often, discard some fairly soon, though others stick with me. I am a bit of an inspiration butterfly, and jump from project to project aimlessly. I will write for a month or two, then do <a href="/gallery">digital art</a> for a month or two, pick up the redesign of my page for the umpteenth time, etc. Unfortunately these butterfly tendencies are paired with a certain amount of perfectionism, which is one of the reasons I lose interest: If I can't get something as awesome as I want it to be, I just stop.</p>
-                    </div>
-                    <hr>
-                    <div class="section">
-                        <div class="column">
-                            <h2>Likes</h2>
+</span><span class="com">#http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> _git_prompt</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">local</span><span class="pln"> git_status</span><span class="pun">=</span><span class="str">"`git status -unormal 2&gt;&amp;1`"</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">!</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> </span><span class="typ">Not</span><span class="pln">\ a\ git\ repo </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ to\ commit </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">42</span><span class="pln">
+        </span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ added\ to\ commit\ but\ untracked\ files\ present </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">43</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln">
+            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">45</span><span class="pln">
+        </span><span class="kwd">fi</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> </span><span class="typ">On</span><span class="pln">\ branch\ </span><span class="pun">([^[:</span><span class="pln">space</span><span class="pun">:]]+)</span><span class="pln"> </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+            branch</span><span class="pun">=</span><span class="pln">$</span><span class="pun">{</span><span class="pln">BASH_REMATCH</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]}</span><span class="pln">
+            test </span><span class="str">"$branch"</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> master </span><span class="pun">||</span><span class="pln"> branch</span><span class="pun">=</span><span class="str">' '</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln">
+            </span><span class="com"># Detached HEAD.  (branch=HEAD is a faster alternative.)</span><span class="pln">
+            branch</span><span class="pun">=</span><span class="str">"(`git describe --all --contains --abbrev=4 HEAD 2&gt; /dev/null ||
+                echo HEAD`)"</span><span class="pln">
+        </span><span class="kwd">fi</span><span class="pln">
+        echo </span><span class="pun">-</span><span class="pln">n </span><span class="str">'\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '</span><span class="pln">
+    </span><span class="kwd">fi</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> _prompt_command</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    PS1</span><span class="pun">=</span><span class="str">"`_git_prompt`"'\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+PROMPT_COMMAND</span><span class="pun">=</span><span class="pln">_prompt_command
 
-                            <ul>
-                            <li>Clean code</li>
-                            <li>Innovative solutions</li>
-                            <li>Humanist serif fonts</li>
-                            <li>Bad puns</li>
-                            <li>Automation</li>
-                            <li>Markdown for posts/pages</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h2>Dislikes</h2>
-
-                            <ul>
-                            <li>Repeated tasks</li>
-                            <li>Hacks</li>
-                            <li>Realist sans-serif fonts</li>
-                            <li>Inline CSS and JavaScript (by hand <em>or</em> JavaScript)</li>
-                            <li>Hard-to-reproduce bugs</li>
-                            <li>What-you-see-is-kind-of-sort-of-what-you-get-in-the-worst-way-possible</li>
-                            </ul>
-                        </div>
-                    </div>
+</span><span class="com"># end snazzy git prompt</span></code></pre>
                 </article>
             </main>
             <aside class="sidebar widget-area" role="complementary">
@@ -154,10 +152,6 @@
         </footer>
 
         <!-- build:js scripts/main.min.js -->
-        <script src="components/WP-MarkDown/js/pagedown/Markdown.Converter.js"></script>
-        <script src="components/WP-MarkDown/js/pagedown/Markdown.Sanitizer.js"></script>
-        <script src="components/WP-MarkDown/js/pagedown/Markdown.Editor.js"></script>
-        <script src="components/WP-MarkDown/js/markdown.js"></script>
         <script src="components/jquery-mousewheel/jquery.mousewheel.js"></script>
         <script src="components/fancybox/source/jquery.fancybox.js"></script>
         <script src="components/fancybox/source/helpers/jquery.fancybox-media.js"></script>

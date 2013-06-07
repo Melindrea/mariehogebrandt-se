@@ -15,8 +15,10 @@
  * 4. /theme/assets/js/main.js    (in footer)
  */
 function roots_scripts() {
-    wp_register_style( 'site', get_template_directory_uri() . '/styles/site.css', false, null);
+    wp_register_style( 'site', get_template_directory_uri() . '/styles/site.css', array('fonts'), null);
+    wp_register_style( 'fonts', 'http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700', false, null);
     wp_enqueue_style( 'site' );
+    wp_enqueue_style( 'fonts' );
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
@@ -33,3 +35,23 @@ function roots_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
+
+// This function removes all markdown scripts/styles enqueued, as they
+// are baked into the scripts/CSS of the theme
+function mh_remove_markdown()
+{
+    if ( !is_admin()) {
+        wp_deregister_style('wp-markdown-prettify');
+        wp_deregister_style('wp-markdown-editor');
+
+        wp_deregister_script('md_convert');
+        wp_deregister_script('md_sanit');
+        wp_deregister_script('md_edit');
+        wp_deregister_script('wp-markdown-prettify');
+        wp_deregister_script('wp-markdown-editor');
+    }
+
+
+
+}
+add_action('wp_enqueue_scripts', 'mh_remove_markdown', 15);

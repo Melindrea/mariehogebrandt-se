@@ -138,7 +138,11 @@ add_filter('body_class', 'roots_body_class');
  * @author Scott Walkinshaw <scott.walkinshaw@gmail.com>
  */
 function roots_root_relative_url($input) {
-  $output = wp_make_link_relative($input);
+  if (strpos($input, 'http://fonts.googleapis.com/css?family') === false) {
+      $output = wp_make_link_relative($input);
+    } else {
+        $output = $input;
+    }
   return $output;
 }
 

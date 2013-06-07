@@ -1,0 +1,159 @@
+//
+// Code (inline and blocK)
+// --------------------------------------------------
+
+
+// Inline and block code styles
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: $font-family-monospace;
+  @extend .eta;
+  @include border-radius(5px);
+
+  background: darken($darker-blue, 2*$step);
+  color: $white;
+  border: 1px solid $white; // fallback for IE7-8
+  text-shadow: none;
+}
+
+// Inline code
+code {
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  padding: $indent-val;
+  margin: 0 0 $indent-val;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+
+  // Make prettyprint styles more spaced out for readability
+  &.prettyprint {
+    margin-bottom: $indent-val;
+}
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    color: inherit;
+    white-space: pre;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border: 0;
+}
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+.pln {
+    color: $white;
+}
+@media screen {
+    .str {
+        color: $lighter-green;
+    }
+    .kwd {
+        color: $lighter-blue;
+    }
+    .com {
+        color: $lighter-orange;
+    }
+    .typ {
+        color: #f00;
+    }
+    .lit {
+        color:#0ee;
+    }
+    .pun,
+    .opn,
+    .clo {
+        color:#ee0;
+    }
+    .tag {
+        color:#00c;
+    }
+    .atn {
+        color:#e0e;
+    }
+    .atv {
+        color:#0c0;
+    }
+    .dec,.var {
+        color:#e0e;
+    }
+    .fun {
+        color: #f8f8f8;
+    }
+}
+
+@media print,
+projection {
+    .str {
+        color:#060;
+    }
+    .kwd {
+        color:#006; font-weight:bold;
+    }
+    .com
+    {
+        color:#600;
+        font-style:italic;
+    }
+    .typ {
+        color:#404;
+        font-weight:bold;
+    }
+    .lit {
+        color:#044;
+    }
+    .pun,
+    .opn,
+    .clo {
+        color:#440;
+    }
+    .tag {
+        color:#006;
+        font-weight:bold;
+    }
+    .atn {
+        color:#404;
+    }
+    .atv {
+        color:#060;
+    }
+}
+pre.prettyprint {
+    padding:2px;
+    border:1px solid #ccc;
+}
+ol.linenums {
+    margin-top:0;
+    margin-bottom:0;
+}
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+    list-style-type:none;
+}
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+    background:#eee;
+ }
