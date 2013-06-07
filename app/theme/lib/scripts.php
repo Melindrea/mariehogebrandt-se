@@ -26,5 +26,10 @@ function roots_scripts() {
     wp_register_script('mariehogebrandt_main', get_template_directory_uri() . '/scripts/main.min.js',  array('jquery'), null, true);
     wp_enqueue_script('head');
     wp_enqueue_script('mariehogebrandt_main');
+    wp_deregister_style( 'contact-form-7' ); //These styles are baked into the stylesheet
+
+    if ( !is_page('contact')) {
+        wp_deregister_script( 'contact-form-7' );
+    }
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

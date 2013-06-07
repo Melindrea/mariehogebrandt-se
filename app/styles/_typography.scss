@@ -67,11 +67,17 @@ h6 {
     line-height: inherit;
     margin-bottom: 0;
 
-    & + p {
+    + p {
         @include clearfix;
         + p {
             text-indent: 0;
         }
+    }
+}
+
+.contact {
+    p {
+        text-indent: 0;
     }
 }
 
@@ -95,7 +101,7 @@ main {
 
 // Overriding typeplate
 p {
-    & + p {
+    + p {
         margin-top: -1.1em; //leaves a margin of about 0.4em
     }
 }

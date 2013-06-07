@@ -1,12 +1,15 @@
-<article <?php post_class('inner'); ?>>
+<article <?php post_class(); ?>>
   <header>
+    <?php if (has_post_thumbnail()) :
+        global $i;
+
+        $alignment = ($i%2 == 0) ? 'left' : 'right';
+        the_post_thumbnail(array('class' => 'attachment-$size img-polaroid align'.$alignment));
+    endif; ?>
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
     <?php the_excerpt(); ?>
   </div>
-  <footer>
-    <?php the_tags('<ul class="entry-tags"><li>','</li><li>','</li></ul>'); ?>
-  </footer>
 </article>

@@ -7,8 +7,8 @@
     }
 }
 
-.entries {
-    h1 {
+.blog {
+    .page-header {
         @include border-separator-top;
     }
 }
