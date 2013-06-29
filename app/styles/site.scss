@@ -30,9 +30,8 @@
 
 $my-font-family: 'Calendas Plus', Georgia, serif !default;
 $my-alternate-font-family: Georgia, serif;
-$font-family-sans: Verdana, sans-serif !default;
+$my-font-family-sans: Verdana, sans-serif !default;
 $font-family-monospace: 'Source Code Pro', monospace !default;
-$font-properties: $font-weight, $line-height, $font-size, $my-font-family;
 
 @import "typography";
 
@@ -51,7 +50,7 @@ $font-properties: $font-weight, $line-height, $font-size, $my-font-family;
 
 
 html {
-    @include base-type($font-properties...);
+    font-family: $my-font-family;
 
     @include breakpoint(24em) {
         font-size: 100%;
