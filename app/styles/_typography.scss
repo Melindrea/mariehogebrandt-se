@@ -1,9 +1,9 @@
 .eta {
-    @include modular-scale($eta, $font-base, '#{$type-scale-unit-value}', $measure);
+    @include type-scale($eta, $font-base, '#{$type-scale-unit-value}', $measure);
 }
 
 .theta {
-    @include modular-scale($theta, $font-base, '#{$type-scale-unit-value}', $measure);
+    @include type-scale($theta, $font-base, '#{$type-scale-unit-value}', $measure);
 }
 
 %cross-head {
@@ -44,7 +44,7 @@ h2 {
     letter-spacing: 2px;
 
     .amp {
-        font-family: $font-family;
+        font-family: $my-font-family;
     }
 }
 

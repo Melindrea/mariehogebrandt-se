@@ -7,7 +7,6 @@
 @import "compass";
 @import "breakpoint";
 
-
 @import "vendor/fonts";
 @import "vendor/icons";
 
@@ -26,6 +25,15 @@
     font-family: 'Calendas Plus SC';
 }
 
+// $B a s e  T y p e, overridden
+// --------------------------------------------------------------------------
+
+$my-font-family: 'Calendas Plus', Georgia, serif !default;
+$my-alternate-font-family: Georgia, serif;
+$font-family-sans: Verdana, sans-serif !default;
+$font-family-monospace: 'Source Code Pro', monospace !default;
+$font-properties: $font-weight, $line-height, $font-size, $my-font-family;
+
 @import "typography";
 
 @import "design";
@@ -43,8 +51,7 @@
 
 
 html {
-    font-size: (14/16)*100%;
-    line-height: 1.5;
+    @include base-type($font-properties...);
 
     @include breakpoint(24em) {
         font-size: 100%;
@@ -91,7 +98,7 @@ img {
     margin-bottom: 0;
     @extend .epsilon;
     @include breakpoint(24em) {
-        @include modular-scale($gamma, $font-base, '#{$type-scale-unit-value}', $measure);
+        @include type-scale($gamma, $font-base, '#{$type-scale-unit-value}', $measure);
     }
     text-align: center;
     a {

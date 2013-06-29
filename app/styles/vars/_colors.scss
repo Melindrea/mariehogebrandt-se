@@ -1,0 +1,29 @@
+// $C o l o r
+// --------------------------------------------------------------------------
+$step: 15;
+
+$lighter-green: #79deb6;
+$light-green: #36d796;
+$green: #00ae68;
+$dark-green: #218358;
+$darker-green: #007144;
+
+$lighter-blue: #66a1d2;
+$light-blue: #3f8fd2;
+$blue: #0b5fa5;
+$dark-blue: #25557c;
+$darker-blue: #0436cb;
+
+$lighter-orange: #ff9d73;
+$light-orange: #ff7940;
+$orange: #ff4c00;
+$dark-orange: #bf5b30;
+$darker-orange: #a63100;
+
+$white: #f8f8f8;
+$grey: #ccc;
+$dark-grey: darken($darker-green, 10);
+$black: darken($darker-green, 20);
+
+$body-copy-color: $dark-grey;
+$heading-color: $black;

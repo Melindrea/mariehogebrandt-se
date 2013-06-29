@@ -30,8 +30,6 @@ pre {
   margin: 0 0 $indent-val;
   word-break: break-all;
   word-wrap: break-word;
-  white-space: pre;
-  white-space: pre-wrap;
 
   // Make prettyprint styles more spaced out for readability
   &.prettyprint {
@@ -42,8 +40,6 @@ pre {
   code {
     padding: 0;
     color: inherit;
-    white-space: pre;
-    white-space: pre-wrap;
     background-color: transparent;
     border: 0;
 }
