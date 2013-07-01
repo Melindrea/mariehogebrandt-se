@@ -57,7 +57,7 @@ html {
     }
 
     @include breakpoint(40em) {
-        font-size: (18/16)*100%;
+        font-size: 112.5%;
     }
     @include breakpoint(117em) {
         font-size: (20/16)*100%;
