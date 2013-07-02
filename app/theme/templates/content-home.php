@@ -1,7 +1,9 @@
 <?php while (have_posts()) : the_post(); ?>
     <div class="section">
         <?php if (has_post_thumbnail()) :
-            mh_the_post_thumbnail();
+            // mh_the_post_thumbnail();
+            $size = mh_get_thumbnail_size('large');
+            the_post_thumbnail($size, mh_get_post_thumbnail_classes($size));
         endif; ?>
         <?php the_content(); ?>
     </div>

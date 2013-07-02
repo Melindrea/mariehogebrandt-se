@@ -96,7 +96,7 @@ function is_element_empty($element) {
   return empty($element) ? false : true;
 }
 
-function mh_the_post_thumbnail()
+function mh_the_post_thumbnail($size = 'large')
 {
     $largeImageUrl = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
     $featuredImage = get_the_post_thumbnail();
@@ -108,6 +108,29 @@ function mh_the_post_thumbnail()
     echo $return;
 }
 
+function mh_get_thumbnail_size($intended)
+{
+    $mobileDetect = new Mobile_Detect();
+    if ($mobileDetect->isMobile()) {
+        return $intended . '-mobile';
+    } elseif ($mobileDetect->isTablet()) {
+        return $indented . '-tablet';
+    }
+    return $intended;
+}
+function mh_get_post_thumbnail_classes($size = 'thumbnail', $classes = null)
+{
+    $return = array("attachment-$size", 'img-polaroid');
+
+    if ($classes) {
+        if (is_array($classes)) {
+            $return = array_merge($return, $classes);
+        } else {
+            $return[] = $classes;
+        }
+    }
+    return array('class' => join(' ', $return));
+}
 function mh_latest_status()
 {
     $args = array(

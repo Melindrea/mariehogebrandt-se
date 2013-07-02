@@ -10,7 +10,8 @@
     </header>
     <div class="entry-content">
     <?php if (has_post_thumbnail()) :
-        the_post_thumbnail('large', array('class' => 'attachment-$size img-polaroid thumbnail'));
+        $size = mh_get_thumbnail_size('large');
+        the_post_thumbnail($size, mh_get_post_thumbnail_classes($size));
     endif; ?>
         <?php the_content(); ?>
     </div>
