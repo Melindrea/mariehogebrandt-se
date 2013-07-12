@@ -111,11 +111,12 @@ p {
     font-style: italic;
 }
 
-.caps {
+.caps,
+abbr {
     @include smallcaps($body-copy-color, inherit);
 }
 
-// Not really useful,since theonly thing thatcould be of interest is titling
+// Not really useful,since the only thing that could be of interest is titling
 // caps, and those are only in titles
 .numbers {
 
