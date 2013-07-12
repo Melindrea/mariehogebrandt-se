@@ -8,7 +8,7 @@ code,
 pre {
   padding: 0 3px 2px;
   font-family: $font-family-monospace;
-  @extend .eta;
+  font-size: 0.8333em;
   @include border-radius(5px);
 
   background: darken($darker-blue, 2*$step);
