@@ -114,6 +114,7 @@ p {
 .caps,
 abbr {
     @include smallcaps($body-copy-color, inherit);
+    font-variant: inherit;
 }
 
 // Not really useful,since the only thing that could be of interest is titling
