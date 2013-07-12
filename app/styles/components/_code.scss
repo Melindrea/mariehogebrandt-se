@@ -8,7 +8,6 @@ code,
 pre {
   padding: 0 3px 2px;
   font-family: $font-family-monospace;
-  font-size: 0.8333em;
   @include border-radius(5px);
 
   background: darken($darker-blue, 2*$step);
@@ -21,10 +20,12 @@ pre {
 code {
   padding: 2px 4px;
   white-space: nowrap;
+  font-size: 0.8333em;
 }
 
 // Blocks of code
 pre {
+  @extend .eta;
   display: block;
   padding: $indent-val;
   margin: 0 0 $indent-val;
@@ -34,7 +35,7 @@ pre {
   // Make prettyprint styles more spaced out for readability
   &.prettyprint {
     margin-bottom: $indent-val;
-}
+  }
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -42,7 +43,8 @@ pre {
     color: inherit;
     background-color: transparent;
     border: 0;
-}
+    font-size: 1em;
+  }
 }
 
 // Enable scrollable blocks of code
