@@ -349,6 +349,21 @@ module.exports = function (grunt) {
         },
         bumpup: {
             files: ['package.json', 'component.json', 'composer.json']
+        },
+        shell: {
+            screenshot: {
+                command: 'casperjs ' +
+                '--viewportSizes="[[320,480],[320,568],[600,1024],[1024,768],[1280,800],[1440,900]]" ' +
+                '--urls="http://mariehogebrandt.se" screenshot.js ' +
+                '--dir="../../../screenshots/"',
+                options: {
+                    stdout: true,
+                    execOptions: {
+                        cwd: 'app/components/js-responsive-screenshot/'
+                    },
+                    stderr: true
+                }
+            }
         }
     });
 
