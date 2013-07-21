@@ -359,7 +359,7 @@ module.exports = function (grunt) {
                 options: {
                     stdout: true,
                     execOptions: {
-                        cwd: 'app/components/js-responsive-screenshot/'
+                        cwd: 'app/components/js-responsive-screenshots/'
                     },
                     stderr: true
                 }
