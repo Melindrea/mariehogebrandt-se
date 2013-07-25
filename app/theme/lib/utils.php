@@ -156,3 +156,20 @@ function mh_latest_status()
         ->render();
     }
 }
+
+// http://wp-snippets.com/get-the-first-link-in-post/
+// Assumes that the content is a link to the url
+function get_content_link ($content = false, $echo = false) {
+    if ($content === false) {
+        $content = get_the_content();
+    }
+
+    $content = preg_match_all( '/hrefs*=s*["\']([^"\']+)/', $content, $links );
+    $content = $links[1][0];
+
+    if (empty($content)) {
+        $content = false;
+    }
+
+    return $content;
+}
