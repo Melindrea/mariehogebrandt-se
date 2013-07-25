@@ -69,31 +69,31 @@ class GlobalActivityWidget extends WP_Widget
 
 
         //Get any existing copy of our transient data
-        if (false === ($arr = get_transient('widget-global-activity'))) {
+        // if (false === ($arr = get_transient('widget-global-activity'))) {
             $arr = $this->recentPostsAndLinks();
 
-            if ( ! empty($instance['github'])) {
-                $user = $instance['github'];
-                $github = Feed::factory('Github')->setUser($user);
-                $arr = array_merge($arr, $github->getPublicRepositories(),
-                    $github->getPublicGists());
-            }
+            // if ( ! empty($instance['github'])) {
+            //     $user = $instance['github'];
+            //     $github = Feed::factory('Github')->setUser($user);
+            //     $arr = array_merge($arr, $github->getPublicRepositories(),
+            //         $github->getPublicGists());
+            // }
 
-            if ( ! empty($instance['codepen'])) {
-                $user = $instance['codepen'];
-                $codepen = Feed::factory('Codepen')->setUser($user);
-                $arr = array_merge($arr, $codepen->getPublicPens());
-            }
+            // if ( ! empty($instance['codepen'])) {
+            //     $user = $instance['codepen'];
+            //     $codepen = Feed::factory('Codepen')->setUser($user);
+            //     $arr = array_merge($arr, $codepen->getPublicPens());
+            // }
 
-            if ( ! empty($instance['deviant-art'])) {
-                 $user = $instance['deviant-art'];
-                 $deviantArt = Feed::factory('DeviantArt')->setUser($user);
-                 $arr = array_merge($arr, $deviantArt->getDeviations());
-            }
+            // if ( ! empty($instance['deviant-art'])) {
+            //      $user = $instance['deviant-art'];
+            //      $deviantArt = Feed::factory('DeviantArt')->setUser($user);
+            //      $arr = array_merge($arr, $deviantArt->getDeviations());
+            // }
             usort($arr, 'Feed::sort');
 
-            set_transient('widget-global-activity', $arr, 2*HOUR_IN_SECONDS);
-        }
+        //     set_transient('widget-global-activity', $arr, 2*HOUR_IN_SECONDS);
+        // }
 
         $this->data = $arr;
         echo $before_widget;
@@ -175,6 +175,8 @@ class GlobalActivityWidget extends WP_Widget
                 $format = get_post_format($post['ID']);
                 if ($format === false) {
                     $format = 'post';
+                } elseif ($format === 'link') {
+                    $temp['link'] = get_content_link($post['post_content']);
                 }
                 $temp['icon'] = 'entypo-'.$format;
                 $posts[] = $temp;

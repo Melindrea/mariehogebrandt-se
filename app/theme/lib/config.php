@@ -64,6 +64,21 @@ function roots_display_sidebar() {
   return $sidebar_config->display;
 }
 
+function get_content_link ($content = false, $echo = false) {
+    if ($content === false) {
+        $content = get_the_content();
+    }
+
+    $content = preg_match_all( '/hrefs*=s*["\']([^"\']+)/', $content, $links );
+    $content = $links[1][0];
+
+    if (empty($content)) {
+        $content = false;
+    }
+
+    return $content;
+}
+
 /**
  * $content_width is a global variable used by WordPress for max image upload sizes
  * and media embeds (in pixels).
