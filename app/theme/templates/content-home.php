@@ -3,7 +3,7 @@
         <?php if (has_post_thumbnail()) :
             // mh_the_post_thumbnail();
             $size = mh_get_thumbnail_size('large');
-            the_post_thumbnail($size, mh_get_post_thumbnail_classes($size));
+            the_post_thumbnail($size, mh_get_post_thumbnail_classes($size, 'alignleft'));
         endif; ?>
         <?php the_content(); ?>
     </div>
