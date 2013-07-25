@@ -159,7 +159,7 @@ module.exports = function (grunt) {
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*', '<%= wordpress.path %>/*'],
             server: '.tmp',
-            html: '<%= yeoman.dist %>/*.html'
+            html: ['<%= yeoman.dist %>/*.html', '<%= yeoman.dist %>/scripts/jquery.min.js']
         },
         jshint: {
             options: {
@@ -272,27 +272,6 @@ module.exports = function (grunt) {
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
                 }
-            }
-        },
-        htmlmin: {
-            dist: {
-                options: {
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>',
-                    src: '*.html',
-                    dest: '<%= yeoman.dist %>'
-                }]
             }
         },
         copy: {
@@ -422,7 +401,6 @@ module.exports = function (grunt) {
         'compass:dist',
         'useminPrepare',
         'imagemin',
-        'htmlmin',
         'concat',
         'cssmin',
         'uglify',
