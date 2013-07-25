@@ -158,7 +158,8 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*', '<%= wordpress.path %>/*'],
-            server: '.tmp'
+            server: '.tmp',
+            html: '<%= yeoman.dist %>/*.html'
         },
         jshint: {
             options: {
@@ -210,6 +211,19 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: ['.tmp/styles/site.css', '.tmp/styles/rtl.css']
+            }
+        },
+        ftpush: {
+            build: {
+                auth: {
+                    host: 'ftpcluster.loopia.se',
+                    port: 21,
+                    authKey: 'blog'
+                },
+                src: 'wordpress/wp-content/themes/mariehogebrandt/',
+                dest: 'ftp/'
+                // exclusions: []
+                // keep: []
             }
         },
         // not used since Uglify task does concat,
@@ -413,8 +427,9 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        //'phpunit',
-        'usemin'
+        // 'phpunit',
+        'usemin',
+        'clean:html'
     ]);
     grunt.registerTask('theme', [
         'watch:theme'
