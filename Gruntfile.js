@@ -404,8 +404,21 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        // 'phpunit',
-        // 'rev',
+        'wpRev',
+        'usemin'
+    ]);
+
+    grunt.registerTask('buildTheme', [
+        'clean:dist',
+        'js',
+        'phplint',
+        'compass:dist',
+        'useminPrepare',
+        'imagemin',
+        'concat',
+        'cssmin',
+        'uglify',
+        'copy',
         'usemin'
     ]);
     grunt.registerTask('theme', [
