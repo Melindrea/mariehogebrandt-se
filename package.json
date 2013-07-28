@@ -28,7 +28,8 @@
     "grunt-csscss": "~0.2.0",
     "bas": "0.0.13",
     "grunt-shell": "~0.3.1",
-    "grunt-ftpush": "~0.1.2"
+    "grunt-ftpush": "~0.1.2",
+    "glob": "~3.2.6"
   },
   "engines": {
     "node": ">=0.8.0"

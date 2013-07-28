@@ -158,8 +158,7 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*', '<%= wordpress.path %>/*'],
-            server: '.tmp',
-            html: ['<%= yeoman.dist %>/*.html', '<%= yeoman.dist %>/scripts/jquery.min.js']
+            server: '.tmp'
         },
         jshint: {
             options: {
@@ -226,21 +225,6 @@ module.exports = function (grunt) {
                 // keep: []
             }
         },
-        // not used since Uglify task does concat,
-        // but still available if needed
-        /*concat: {
-            dist: {}
-        },*/
-
-        uglify: {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/scripts/main.js': [
-                        '<%= yeoman.app %>/scripts/{,*/}*.js'
-                    ],
-                }
-            }
-        },
         useminPrepare: {
             html: '<%= yeoman.app %>/index.html',
             options: {
@@ -248,7 +232,6 @@ module.exports = function (grunt) {
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
                 dirs: ['<%= yeoman.dist %>']
@@ -267,7 +250,7 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/styles/site.css': [
+                    '<%= yeoman.dist %>/styles/site.min.css': [
                         '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
@@ -283,7 +266,9 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,txt}',
-                        '.htaccess'
+                        '.htaccess',
+                        'images/{,*/}*.{webp,gif}',
+                        'styles/fonts/*'
                     ]
                 },
                 {
@@ -330,6 +315,19 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        wpRev: {
+            dist: {
+                files: {
+                    src: [
+                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
+                        '<%= yeoman.dist %>/styles/{,*/}*.css'
+                    ]
+                },
+            },
+            options: {
+                file: '<%= yeoman.dist %>/lib/scripts.php'
+            }
+        },
         phpunit: {
             classes: {
                 dir: 'test/php/spec/'
@@ -362,6 +360,7 @@ module.exports = function (grunt) {
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    grunt.loadTasks('tasks');
 
     grunt.renameTask('regarde', 'watch');
 
@@ -406,8 +405,8 @@ module.exports = function (grunt) {
         'uglify',
         'copy',
         // 'phpunit',
-        'usemin',
-        'clean:html'
+        // 'rev',
+        'usemin'
     ]);
     grunt.registerTask('theme', [
         'watch:theme'

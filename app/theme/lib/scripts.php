@@ -15,18 +15,18 @@
  * 4. /theme/assets/js/main.js    (in footer)
  */
 function roots_scripts() {
-    wp_register_style( 'site', get_template_directory_uri() . '/styles/site.css', array('fonts'), null);
-    wp_register_style( 'fonts', 'http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700', false, null);
-    wp_enqueue_style( 'site' );
-    wp_enqueue_style( 'fonts' );
+    wp_register_style('mariehogebrandt_site', get_template_directory_uri() . '/styles/site.min.css', array('fonts'), null);
+    wp_register_style('mariehogebrandt_fonts', 'http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700', false, null);
+    wp_enqueue_style('mariehogebrandt_site');
+    wp_enqueue_style('mariehogebrandt_fonts');
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
     }
 
-    wp_register_script('head', get_template_directory_uri() . '/scripts/head.min.js', array('jquery'), null, false);
+    wp_register_script('mariehogebrandt_head', get_template_directory_uri() . '/scripts/head.min.js', array('jquery'), null, false);
     wp_register_script('mariehogebrandt_main', get_template_directory_uri() . '/scripts/main.min.js',  array('jquery'), null, true);
-    wp_enqueue_script('head');
+    wp_enqueue_script('mariehogebrandt_head');
     wp_enqueue_script('mariehogebrandt_main');
     wp_deregister_style( 'contact-form-7' ); //These styles are baked into the stylesheet
 
@@ -50,8 +50,5 @@ function mh_remove_markdown()
         wp_deregister_script('wp-markdown-prettify');
         wp_deregister_script('wp-markdown-editor');
     }
-
-
-
 }
 add_action('wp_enqueue_scripts', 'mh_remove_markdown', 15);
