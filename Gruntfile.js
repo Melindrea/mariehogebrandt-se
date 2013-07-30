@@ -1,6 +1,7 @@
 // Generated on 2013-04-02 using generator-webapp 0.1.5
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
@@ -48,6 +49,9 @@ module.exports = function (grunt) {
                 tasks: ['copy:theme']
             },
             livereload: {
+                options: {
+                    livereload: LIVERELOAD_PORT
+                },
                 files: [
                     '<%= yeoman.app %>/*.html',
                     '<%= yeoman.app %>/theme/**',
@@ -55,7 +59,6 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,webp}'
                 ],
-                tasks: ['livereload']
             }
         },
         phplint: {
@@ -126,7 +129,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'app')
+                            mountFolder(connect, yeomanConfig.app)
                         ];
                     }
                 }
@@ -145,7 +148,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, 'dist')
+                            mountFolder(connect, yeomanConfig.dist)
                         ];
                     }
                 }
@@ -255,15 +258,30 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        cssmin: {
+        svgmin: {
             dist: {
-                files: {
-                    '<%= yeoman.dist %>/styles/site.min.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
-                    ]
-                }
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/images',
+                    src: '{,*/}*.svg',
+                    dest: '<%= yeoman.dist %>/images'
+                }]
             }
+        },
+        cssmin: {
+            // This task is pre-configured if you do not wish to use Usemin
+            // blocks for your CSS. By default, the Usemin block from your
+            // `index.html` will take care of minification, e.g.
+            //
+            //     <!-- build:css({.tmp,app}) styles/main.css -->
+            // dist: {
+            //     files: {
+            //         '<%= yeoman.dist %>/styles/site.min.css': [
+            //             '.tmp/styles/{,*/}*.css',
+            //             '<%= yeoman.app %>/styles/{,*/}*.css'
+            //         ]
+            //     }
+            // }
         },
         copy: {
             dist: {
@@ -363,14 +381,28 @@ module.exports = function (grunt) {
                     stderr: true
                 }
             }
+        },
+        concurrent: {
+            server: [
+                'compass',
+                'js'
+            ],
+            test: [
+                'compass',
+                'js'
+            ],
+            dist: [
+                'js',
+                'compass',
+                'imagemin',
+                'svgmin'
+            ]
         }
     });
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     grunt.loadTasks('tasks');
-
-    grunt.renameTask('regarde', 'watch');
 
     grunt.registerTask('js', [
         'jshint',
@@ -385,8 +417,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'compass:server',
-            'livereload-start',
+            'concurrent:server',
             'connect:livereload',
             'open',
             'watch'
@@ -395,7 +426,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
-        'compass',
+        'concurrent:test',
         'connect:test',
         'mocha'//,
         // 'copy:theme',
@@ -404,10 +435,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'js',
         'phplint',
-        'compass:dist',
         'useminPrepare',
+        'concurrent:dist',
         'imagemin',
         'concat',
         'cssmin',
@@ -419,10 +449,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('buildTheme', [
         'clean:dist',
-        'js',
         'phplint',
-        'compass:dist',
         'useminPrepare',
+        'concurrent:dist',
         'imagemin',
         'concat',
         'cssmin',
