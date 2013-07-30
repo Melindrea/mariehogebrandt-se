@@ -167,7 +167,15 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
+                'tasks/{,*/}*.js',
+                'test/spec/{,*/}*.js'
+            ]
+        },
+        jsvalidate: {
+            files: [
+                'Gruntfile.js',
+                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                'tasks/{,*/}*.js',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -366,6 +374,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('js', [
         'jshint',
+        'jsvalidate',
         'modernizr'
     ]);
 
@@ -414,6 +423,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('lint', [
         'jshint',
+        'jsvalidate',
         'phplint'
     ]);
 
