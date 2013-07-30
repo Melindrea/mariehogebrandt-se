@@ -11,12 +11,12 @@
   },
   "devDependencies": {
     "golden-grid-system": "latest",
-    "js-responsive-screenshots": "git://github.com/Melindrea/js-responsive-screenshots.git",
-    "wordpress": "git://github.com/WordPress/WordPress.git#~3.5.1",
-    "roots": "git://github.com/retlehs/roots.git#~6.4.0",
-    "wordpress-seo": "git://github.com/jdevalk/wordpress-seo.git",
-    "wp-typography": "git://github.com/Melindrea/wp-typography.git",
-    "wp-h5bp-htaccess": "git://github.com/roots/wp-h5bp-htaccess.git",
-    "WP-MarkDown": "git://github.com/stephenharris/WP-MarkDown.git#~1.1.6"
+    "js-responsive-screenshots": "https://github.com/Melindrea/js-responsive-screenshots/archive/master.zip",
+    "wordpress": "http://wordpress.org/latest.zip",
+    "roots": "https://github.com/retlehs/roots.git/archive/master.zip",
+    "wordpress-seo": "https://github.com/jdevalk/wordpress-seo/archive/master.zip",
+    "wp-typography": "https://github.com/Melindrea/wp-typography/archive/master.zip",
+    "wp-h5bp-htaccess": "https://github.com/roots/wp-h5bp-htaccess/archive/master.zip",
+    "WP-MarkDown": "https://github.com/stephenharris/WP-MarkDown/archive/master.zip"
   }
 }
