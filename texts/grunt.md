@@ -41,7 +41,7 @@ It might take a bit to install NodeJS, so be patient...
     nvm alias default 0.10.13 #sets the default assumption of any project to that
 
 ## Installing NPM
-NPM is the package manager for NodeJS (what a shocker, eh?), with the homepage (and index of packages) at [NPMJS](https://npmjs.org/). It occasionally feels somewhat meta that we will install a package manager (NPM) so that we can install another package manager (Bower), but that is an article fcurl https://npmjs.org/install.sh | shor another day.
+NPM is the package manager for NodeJS (what a shocker, eh?), with the homepage (and index of packages) at [NPMJS](https://npmjs.org/). It occasionally feels somewhat meta that we will install a package manager (NPM) so that we can install another package manager (Bower), but that is an article for another day.
 
 Oh, look, another cURL script being fetched and then piped through sh!
 
