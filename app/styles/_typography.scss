@@ -41,11 +41,6 @@ h2 {
 //Uppercase, higher letter spacing
 #{headers()} {
     @include smallcaps($heading-color, $bold);
-    letter-spacing: 2px;
-
-    .amp {
-        font-family: $my-font-family;
-    }
 }
 
 //Indented Sidehead
@@ -114,7 +109,6 @@ p {
 .caps,
 abbr {
     @include smallcaps($body-copy-color, inherit);
-    font-variant: inherit;
 }
 
 // Not really useful,since the only thing that could be of interest is titling
