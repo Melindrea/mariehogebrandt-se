@@ -342,6 +342,11 @@
 }
 
 @mixin ornamented($char: getUnicode('£'), $position: 'both') {
+    &:before,
+    &:after {
+        font-variant: normal;
+    }
+
     @if $position == 'both' {
         &:before,
         &:after {
@@ -376,12 +381,12 @@
         }
     }
 
-        .no-fontface &:before,
-        .no-fontface &:after {
-            content: '';
-            margin-left: inherit;
-            margin-right: inherit;
-        }
+    .no-fontface &:before,
+    .no-fontface &:after {
+        content: '';
+        margin-left: inherit;
+        margin-right: inherit;
+    }
 
 }
 
