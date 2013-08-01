@@ -230,8 +230,8 @@ module.exports = function (grunt) {
                     port: 21,
                     authKey: 'blog'
                 },
-                src: 'wordpress/wp-content/themes/mariehogebrandt/',
-                dest: 'ftp/'
+                src: '<%= yeoman.dist %>/',
+                dest: '/'
                 // exclusions: []
                 // keep: []
             }
