@@ -6,6 +6,6 @@ before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq php5 ruby
  - bundle install
- - composer install --dev
+ - php composer install --dev
  - npm install -g bower
  - bower install
