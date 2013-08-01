@@ -23,7 +23,9 @@ module.exports = function (grunt) {
         path: 'wordpress',
         plugins: [
             'wordpress-seo',
-            'wp-typography'
+            'wp-typography',
+            'wp-markdown',
+            'wp-h5bp-htaccess'
         ]
 
     };
@@ -310,9 +312,23 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/styles/fonts'
                 },
                 {
-                    cwd: 'wordpress-plugins',
+                    cwd: 'app/components',
                     expand: true,
-                    src: ['**'],
+                    src: [
+                        'wordpress-seo/**',
+                        'wp-typography/**',
+                        'wp-markdown/**',
+                        'wp-h5bp-htaccess/**',
+                        'advanced-custom-fields/**',
+                        'acf-flexible-content/**',
+                        'acf-gallery/**',
+                        'acf-options-page/**',
+                        'acf-repeater/**',
+                        'contact-form-7/**',
+                        'contact-form-7-honeypot/**',
+                        'theme-check/**',
+                        'wp-pagenavi/**'
+                    ],
                     dest: '<%= wordpress.path %>/wp-content/plugins'
                 },
                 {
