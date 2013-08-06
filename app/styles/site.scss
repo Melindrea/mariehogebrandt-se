@@ -17,16 +17,13 @@
 @import "vendor/fancybox";
 
 // Overriding smallcaps mixing from typeplate
-@mixin smallcaps($color, $font-weight) {
-    // depends on the font family.
-    // some font-families don't support small caps
-    // or don't provide them with their web font.
-    text-transform: lowercase;
-    font-family: 'Calendas Plus SC';
-}
-
-// $B a s e  T y p e, overridden
-// --------------------------------------------------------------------------
+// @mixin smallcaps($color, $font-weight) {
+//     // depends on the font family.
+//     // some font-families don't support small caps
+//     // or don't provide them with their web font.
+//     text-transform: lowercase;
+//     font-family: 'Calendas Plus SC';
+// }
 
 $my-font-family: 'Calendas Plus', Georgia;
 $my-alternate-font-family: Georgia;

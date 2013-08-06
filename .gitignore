@@ -37,6 +37,7 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.lock
 
 pids
 logs

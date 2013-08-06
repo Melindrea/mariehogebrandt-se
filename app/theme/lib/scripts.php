@@ -15,10 +15,9 @@
  * 4. /theme/assets/js/main.js    (in footer)
  */
 function roots_scripts() {
-    wp_register_style('mariehogebrandt_site', get_template_directory_uri() . '/styles/site.min.css', array('fonts'), null);
+    wp_register_style('mariehogebrandt_site', get_template_directory_uri() . '/styles/site.min.css', array('mariehogebrandt_fonts'), null);
     wp_register_style('mariehogebrandt_fonts', 'http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700', false, null);
     wp_enqueue_style('mariehogebrandt_site');
-    wp_enqueue_style('mariehogebrandt_fonts');
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
