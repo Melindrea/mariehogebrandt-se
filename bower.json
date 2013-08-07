@@ -12,20 +12,15 @@
   "devDependencies": {
     "golden-grid-system": "latest",
     "js-responsive-screenshots": "https://github.com/Melindrea/js-responsive-screenshots/archive/master.zip",
-    "wordpress": "http://wordpress.org/latest.zip",
-    "roots": "https://github.com/retlehs/roots.git/archive/master.zip",
     "wordpress-seo": "https://github.com/jdevalk/wordpress-seo/archive/master.zip",
     "wp-typography": "https://github.com/Melindrea/wp-typography/archive/master.zip",
     "wp-h5bp-htaccess": "https://github.com/roots/wp-h5bp-htaccess/archive/master.zip",
     "wp-markdown": "https://github.com/stephenharris/WP-MarkDown/archive/master.zip",
     "advanced-custom-fields": "http://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
-    "acf-flexible-content": "https://www.dropbox.com/s/jvqvkl7ltfmaebs/acf-flexible-content.zip",
-    "acf-gallery": "https://www.dropbox.com/s/8o4tvgq19cywoyf/acf-gallery.zip",
-    "acf-options-page": "https://www.dropbox.com/s/owcgdwdw7ukehsh/acf-options-page.zip",
-    "acf-repeater": "https://www.dropbox.com/s/3n2wc2qtgx77ppe/acf-repeater.zip",
     "contact-form-7": "http://downloads.wordpress.org/plugin/contact-form-7.3.4.2.zip",
     "contact-form-7-honeypot": "http://downloads.wordpress.org/plugin/contact-form-7-honeypot.zip",
     "theme-check": "http://downloads.wordpress.org/plugin/theme-check.20121211.1.zip",
-    "wp-pagenavi": "http://downloads.wordpress.org/plugin/wp-pagenavi.2.83.zip"
+    "wp-pagenavi": "http://downloads.wordpress.org/plugin/wp-pagenavi.2.83.zip",
+    "wordpress": "latest"
   }
 }
