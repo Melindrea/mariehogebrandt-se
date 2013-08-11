@@ -1,4 +1,4 @@
-# 13 Useful WordPress Plugins
+# 10 Useful WordPress Plugins
 <summary>
 Descriptions and whys-hows of plugins I personally use
 </summary>

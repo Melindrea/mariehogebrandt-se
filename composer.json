@@ -2,7 +2,8 @@
     "name": "mariehogebrandt-se",
     "version": "0.1.1",
     "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "3.7.*",
+        "squizlabs/php_codesniffer": "1.*"
     },
     "config": {
         "vendor-dir": "app/vendor/"
