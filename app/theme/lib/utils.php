@@ -173,3 +173,25 @@ function get_content_link ($content = false, $echo = false) {
 
     return $content;
 }
+
+function mh_get_the_timedate($format)
+{
+    $u_time = get_the_time( 'U' );
+    $u_modified_time = get_the_modified_time( 'U' );
+
+    // 1 day = 24h * 60m * 60s = 86400
+    return ($u_modified_time >= $u_time + 86400) ? get_the_modified_time($format)
+    : get_the_date($format);
+}
+
+function mh_get_the_time($format = null)
+{
+    $format = ($format) ?:get_option('date_format');
+    return mh_get_the_timedate($format);
+}
+
+function mh_get_the_date($format = null)
+{
+    $format = ($format) ?:get_option('time_format');
+    return mh_get_the_timedate($format);
+}
