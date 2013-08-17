@@ -48,6 +48,7 @@ $font-family-monospace: 'Source Code Pro', monospace !default;
 
 html {
     font-family: $my-font-family;
+    font-size: 87.5%;
 
     @include breakpoint(24em) {
         font-size: 100%;
