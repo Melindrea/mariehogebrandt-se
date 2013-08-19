@@ -9,9 +9,16 @@
 %cross-head {
     text-align: center;
 }
+
 // Ornamented
+
 h1 {
     @include ornamented('H');
+}
+
+//Ornamented
+h2 {
+    @include ornamented('f');
 }
 
 .subtitle {
@@ -21,17 +28,6 @@ h1 {
     text-align: center;
 }
 
-//Ornamented
-h2 {
-    @include ornamented('f');
-}
-
-#{headers(2)} {
-    &:after,
-    &:before {
-        font-size: 0.6em;
-    }
-}
 
 //Cross-head
 #{headers(3)} {

@@ -342,52 +342,54 @@
 }
 
 @mixin ornamented($char: getUnicode('£'), $position: 'both') {
-    &:before,
-    &:after {
-        font-variant: normal;
-    }
+    @include breakpoint(40em) {
+      &:before,
+      &:after {
+          font-variant: normal;
+          font-size: 0.6em;
+      }
 
-    @if $position == 'both' {
-        &:before,
-        &:after {
-            content: $char;
-            @extend %ornament;
-        }
-    }
+      @if $position == 'both' {
+          &:before,
+          &:after {
+              content: $char;
+              @extend %ornament;
+          }
+      }
 
-    @if $position == 'before' {
-        &:before {
-            content: $char;
-            @extend %ornament;
-        }
-    }
+      @if $position == 'before' {
+          &:before {
+              content: $char;
+              @extend %ornament;
+          }
+      }
 
-    @if $position == 'after' {
-        &:after {
-            content: $char;
-            @extend %ornament;
-        }
-    }
+      @if $position == 'after' {
+          &:after {
+              content: $char;
+              @extend %ornament;
+          }
+      }
 
-    @if $position == 'before' or $position == 'both' {
-        &:before {
-            margin-right: 0.033em;
-        }
-    }
+      @if $position == 'before' or $position == 'both' {
+          &:before {
+              margin-right: 0.033em;
+          }
+      }
 
-    @if $position == 'after' or $position == 'both' {
-        &:after {
-            margin-left: 0.033em;
-        }
-    }
+      @if $position == 'after' or $position == 'both' {
+          &:after {
+              margin-left: 0.033em;
+          }
+      }
 
-    .no-fontface &:before,
-    .no-fontface &:after {
-        content: '';
-        margin-left: inherit;
-        margin-right: inherit;
+      .no-fontface &:before,
+      .no-fontface &:after {
+          content: '';
+          margin-left: inherit;
+          margin-right: inherit;
+      }
     }
-
 }
 
 %rounded {
@@ -413,9 +415,11 @@
 }
 
 %ornament {
+  @include breakpoint(40em) {
     font-family: PrintersOrnaments;
     font-weight: normal;
     font-style: normal;
+  }
 }
 
 %clearfix {
