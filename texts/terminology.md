@@ -3,7 +3,7 @@
 Descriptions and definitions of words commonly (or not...) used.
 </summary>
 
-Words are occasionally difficult, since their definition occasionally differs depending on the biases of the person who uses them. To at least try to minimise that, this is a catch-all page for terminology and how I use it. It shouldn't differ too much from the dictionaries (and Wikipedia), but with more examples so we are on the same page.
+Words can be difficult, since their definition occasionally differs depending on the biases of the person who uses them. To at least try to minimise that, this is a catch-all page for terminology and how I use it. It shouldn't differ too much from the dictionaries (and Wikipedia), but with more examples so we are on the same page.
 
 ## 3-tier Architecture {#architecture}
 For the more formal and broader (IE not just web development) definition, [Wikipedia has an article on 3-tier Architecture](http://en.wikipedia.org/wiki/Multitier_architecture), which is the basis for my definitions.
@@ -30,3 +30,12 @@ How much effort goes into the database depends quite a bit on the kind of applic
 However, the more important the data and its' structure is, the more important it is to take good care with the persistance layer. The larger the application, the higher the number of users and number of transactions, the more effort needs to be put into making it right to begin with, and very few Object-Relation Managers can deal with complex and large sets of data as efficiently as someone who knows exactly what needs to be done, and how to do it. Figuring out keys and indices and how much of a cell needs to be covered for the full-text search to perform well without being useless are all tasks better suited for people than for software. 
 
 Personally, I would also add cron jobs and similar things to the description of back-end. They might use the same libraries/framework as the middleware, but any tasks intended to do things heavily on the server are back-end tasks.
+
+## Flat Build {#flat-build}
+This is a term I picked up quite recently, when I was browsing around and found [Matt Bailey's](http://blog.mattbailey.co/post/52949597525/front-end-process-flat-builds-and-automation) articles on it, and it immediately resonated with me, so once I finally finish it there will be an article on how I implement it, but until then this definition will have to do. Oh, and also [David Bushell's](http://dbushell.com/2013/03/18/the-flat-build/) two articles that go a very different route from Matt Bailey.
+
+What is it? Well, it is the description of developing the frontend independently of the backend, that is with pure HTML, CSS and JavaScript, using either mockup data or a fixed dataset of some kind. 
+
+Matt Bailey in his pieace speaks of [Assemble](http://assemble.io) which is based on [Handlebars](http://handlebarsjs.com/) templates, using [Grunt](http://www.gruntjs.com) to build HTML-pages, David Bushell [rolls his own](https://gist.github.com/dbushell/5186122). The big thing that both of them push (and that I adopted wholesale) is that having some kind of build system even for pure HTML, it eases maintainability. The current HTML-mockups of my site looks nothing like the way the site does, because I changed something, and figured it was enough to test it in the `index.html` page.
+
+It probably is, but by building the mockups using some kind of assembling system, it ensures that a change in one gets reflected in the others, and you can test that the JavaScript and CSS changing on one page doesn't break another.
