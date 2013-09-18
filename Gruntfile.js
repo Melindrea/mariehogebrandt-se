@@ -52,7 +52,7 @@ module.exports = function (grunt) {
             },
             templates: {
                 files: ['<%= yeoman.app %>/templates/{,*/}*.hbs'],
-                tasks: ['assemble:pages']
+                tasks: ['newer:assemble:pages']
             },
             livereload: {
                 options: {
@@ -236,6 +236,7 @@ module.exports = function (grunt) {
                 layout: 'default.hbs',
                 layoutdir: 'app/src/templates/layouts',
                 partials: ['app/src/templates/partials/*.hbs'],
+                data: 'app/src/data/data.json'
             },
             pages: {
                 files: {
@@ -498,7 +499,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        'wpRev',
+        // 'wpRev',
         'usemin'
     ]);
 
@@ -538,5 +539,9 @@ module.exports = function (grunt) {
         'lint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('assembler', [
+        'newer:assemble:pages'
     ]);
 };
