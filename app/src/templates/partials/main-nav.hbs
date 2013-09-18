@@ -1,0 +1,9 @@
+<nav class="nav-collapse nav-main" role="navigation">
+    <ul>
+        {{#each pages}}
+        <li class="menu-{{data.page}}{{#is ../page.dest this.dest}} active{{/is}}">
+            <a href="/{{pagename}}">{{data.title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</nav>

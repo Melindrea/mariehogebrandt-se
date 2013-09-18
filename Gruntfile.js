@@ -50,12 +50,17 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/theme/**'],
                 tasks: ['copy:theme']
             },
+            templates: {
+                files: ['<%= yeoman.app %>/templates/{,*/}*.hbs'],
+                tasks: ['assemble:pages']
+            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/templates/{,*/}*.hbs',
                     '<%= yeoman.app %>/theme/**',
                     '{.tmp,<%= yeoman.app %>}/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
@@ -223,6 +228,37 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: ['.tmp/styles/site.css', '.tmp/styles/rtl.css']
+            }
+        },
+        assemble: {
+            options: {
+                flatten: true,
+                layout: 'default.hbs',
+                layoutdir: 'app/src/templates/layouts',
+                partials: ['app/src/templates/partials/*.hbs'],
+            },
+            pages: {
+                files: {
+                    'app/src/': [
+                        'app/src/templates/pages/*.hbs'
+                    ]
+                }
+            },
+            resume: {
+                options: {
+                    layout: 'resume.hbs'
+                },
+                files: {
+                    'app/src/assets/resume/': ['app/src/templates/resumes/*.hbs']
+                }
+            },
+            personalLetter: {
+                options: {
+                    layout: 'personal-letter.hbs'
+                },
+                files: {
+                    'app/src/assets/personal-letters/': ['app/src/templates/personal-letters/*.hbs']
+                }
             }
         },
         ftpush: {
@@ -416,8 +452,11 @@ module.exports = function (grunt) {
         }
     });
 
+    // show elapsed time at the end
+    require('time-grunt')(grunt);
     // load all grunt tasks
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('assemble');
     grunt.loadTasks('tasks');
 
     grunt.registerTask('js', [
