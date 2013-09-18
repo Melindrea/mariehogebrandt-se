@@ -3,7 +3,7 @@
 Descriptions and definitions of words commonly (or not...) used.
 </summary>
 
-Words are occasionally difficult, since their definition occasionally differs depending on the biases of the person who uses them. To at least try to minimise that, this is a catch-all page for terminology and how I use it. It shouldn't differ too much from the dictionaries (and Wikipedia), but with more examples so we are on the same page.
+Words can be difficult, since their definition occasionally differs depending on the biases of the person who uses them. To at least try to minimise that, this is a catch-all page for terminology and how I use it. It shouldn't differ too much from the dictionaries (and Wikipedia), but with more examples so we are on the same page.
 
 ## 3-tier Architecture {#architecture}
 For the more formal and broader (IE not just web development) definition, [Wikipedia has an article on 3-tier Architecture](http://en.wikipedia.org/wiki/Multitier_architecture), which is the basis for my definitions.
