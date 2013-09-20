@@ -31,6 +31,7 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json' ),
         yeoman: yeomanConfig,
         wordpress: wordpressConfig,
         watch: {
@@ -236,7 +237,9 @@ module.exports = function (grunt) {
                 layout: 'default.hbs',
                 layoutdir: 'app/src/templates/layouts',
                 partials: ['app/src/templates/partials/*.hbs'],
-                data: 'app/src/data/data.json'
+                helpers: 'app/src/templates/helpers/*.js',
+                pkg: '<%= pkg %>',
+                data: 'app/src/data/*.json'
             },
             pages: {
                 files: {
