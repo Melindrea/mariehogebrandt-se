@@ -25,11 +25,6 @@
 //     font-family: 'Calendas Plus SC';
 // }
 
-$my-font-family: 'Calendas Plus', Georgia;
-$my-alternate-font-family: Georgia;
-$my-font-family-sans: Verdana;
-$font-family-monospace: 'Source Code Pro', monospace !default;
-
 @import "typography";
 
 @import "design";
@@ -47,7 +42,6 @@ $font-family-monospace: 'Source Code Pro', monospace !default;
 
 
 html {
-    font-family: $my-font-family;
     font-size: 87.5%;
 
     @include breakpoint(24em) {

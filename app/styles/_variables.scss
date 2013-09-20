@@ -64,7 +64,10 @@ $font-weight: normal;
 $line-height: 1.5;
 $font-size: 112.5; // percentage value (16 * 112.5% = 18px)
 $font-base: 16 * ($font-size/100); // converts our percentage to a pixel value
-$serif-boolean: true; // declares serif or sans-serif for your default type
+$font-family: Georgia, serif; // Non-font-face font-stack
+
+$custom-font-family: 'Calendas Plus'; // Font-face stack, if set will be added to the $base-font-family
+$font-family-monospace: 'Source Code Pro', monospace !default;
 
 $bold: bold;
 $normal: 400;

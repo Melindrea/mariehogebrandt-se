@@ -59,7 +59,7 @@
     .previous-entry:before,
     .next-entry:before,
     .random-entry:before {
-        font-family: $my-font-family;
+        font-family: $custom-font-family, $font-family;
     }
 }
 
