@@ -201,7 +201,8 @@ module.exports = function (grunt) {
                 partials: ['app/src/templates/partials/*.hbs'],
                 helpers: 'app/src/templates/helpers/*.js',
                 pkg: '<%= pkg %>',
-                data: 'app/src/data/*.json'
+                data: 'app/src/data/*.json',
+                menu: 'app/src/data/menu.json'
             },
             pages: {
                 files: {

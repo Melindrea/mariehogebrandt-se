@@ -1,0 +1,9 @@
+{
+    "main": [
+        {"title": "Home", "dest": "index.html", "page": "home"},
+        {"title": "Articles", "dest": "articles.html", "page": "articles"},
+        {"title": "Page", "dest": "page.html", "page": "page"},
+        {"title": "Characters", "dest": "characters.html", "page": "characters"},
+        {"title": "Gallery", "dest": "gallery.html", "page": "gallery"}
+    ]
+}
