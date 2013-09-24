@@ -79,10 +79,10 @@ module.exports = function (grunt) {
         //Add the modernizr task with the following configuration
         modernizr: {
             // [REQUIRED] Path to the build you're using for development.
-            devFile: '<%= yeoman.app %>/components/modernizr/modernizr.js',
+            devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
 
             // [REQUIRED] Path to save out the built file.
-            outputFile: '<%= yeoman.app %>/components/modernizr/modernizr.min.js',
+            outputFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.min.js',
 
             files: [
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
@@ -171,7 +171,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%= yeoman.app %>/styles/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: 'app/components',
+                importPath: 'app/bower_components',
                 relativeAssets: true,
                 require: [
                     'breakpoint',
@@ -291,7 +291,7 @@ module.exports = function (grunt) {
                     ]
                 },
                 {
-                    cwd: '<%= yeoman.app %>/components/wordpress',
+                    cwd: '<%= yeoman.app %>/bower_components/wordpress',
                     expand: true,
                     src: ['**'],
                     dest: '<%= wordpress.path %>'
@@ -303,7 +303,7 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/styles/fonts'
                 },
                 {
-                    cwd: 'app/components',
+                    cwd: 'app/bower_components',
                     expand: true,
                     src: [
                         'wordpress-seo/**',
@@ -366,7 +366,7 @@ module.exports = function (grunt) {
                 dir: 'test/php/spec/'
             },
             options: {
-                bin: '<%= yeoman.app %>/vendor/bin/phpunit',
+                bin: 'composer_components/bin/phpunit',
                 bootstrap: 'test/php/phpunit.php',
                 colors: true
             }
@@ -383,7 +383,7 @@ module.exports = function (grunt) {
                 options: {
                     stdout: true,
                     execOptions: {
-                        cwd: 'app/components/js-responsive-screenshots/'
+                        cwd: 'app/bower_components/js-responsive-screenshots/'
                     },
                     stderr: true
                 }

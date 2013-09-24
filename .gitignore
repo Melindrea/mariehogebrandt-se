@@ -45,11 +45,11 @@ results
 
 npm-debug.log
 node_modules
-app/components
+app/bower_components
 /index.html
 runner
 assets
 config.rb
 wordpress
-app/vendor
+composer_components
 
