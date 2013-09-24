@@ -41,11 +41,11 @@ module.exports = function (grunt) {
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass', 'modernizr']
+                tasks: ['newer:compass', 'modernizr']
             },
             php: {
                 files: ['<%= yeoman.app %>/theme/**/*.php'],
-                tasks: ['phplint']
+                tasks: ['newer:phplint']
             },
             theme: {
                 files: ['<%= yeoman.app %>/theme/**'],
@@ -54,6 +54,10 @@ module.exports = function (grunt) {
             templates: {
                 files: ['<%= yeoman.app %>/templates/{,*/}*.hbs'],
                 tasks: ['newer:assemble:pages']
+            },
+            layouts: {
+                files: ['<%= yeoman.app %>/templates/layouts/{,*/}*.hbs'],
+                tasks: ['assemble']
             },
             livereload: {
                 options: {
@@ -197,34 +201,18 @@ module.exports = function (grunt) {
             options: {
                 flatten: true,
                 layout: 'default.hbs',
-                layoutdir: 'app/src/templates/layouts',
-                partials: ['app/src/templates/partials/*.hbs'],
-                helpers: 'app/src/templates/helpers/*.js',
+                layoutdir: 'app/templates/layouts',
+                partials: ['app/templates/partials/*.hbs'],
+                helpers: 'app/templates/helpers/*.js',
                 pkg: '<%= pkg %>',
-                data: 'app/src/data/*.json',
-                menu: 'app/src/data/menu.json'
+                data: 'app/data/*.json',
+                menu: 'app/data/menu.json'
             },
             pages: {
                 files: {
-                    'app/src/': [
-                        'app/src/templates/pages/*.hbs'
+                    'app/': [
+                        'app/templates/pages/*.hbs'
                     ]
-                }
-            },
-            resume: {
-                options: {
-                    layout: 'resume.hbs'
-                },
-                files: {
-                    'app/src/assets/resume/': ['app/src/templates/resumes/*.hbs']
-                }
-            },
-            personalLetter: {
-                options: {
-                    layout: 'personal-letter.hbs'
-                },
-                files: {
-                    'app/src/assets/personal-letters/': ['app/src/templates/personal-letters/*.hbs']
                 }
             }
         },
@@ -427,8 +415,8 @@ module.exports = function (grunt) {
     grunt.loadTasks('tasks');
 
     grunt.registerTask('js', [
-        'jshint',
-        'jsvalidate',
+        'newer:jshint',
+        'newer:jsvalidate',
         'modernizr'
     ]);
 
@@ -439,6 +427,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
+            'newer:assemble:pages',
             'concurrent:server',
             'connect:livereload',
             'open',
@@ -448,6 +437,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
+        'newer:assemble:pages',
         'concurrent:test',
         'connect:test',
         'mocha'//,
@@ -457,7 +447,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'phplint',
+        'newer:assemble:pages',
+        'newer:phplint',
         'useminPrepare',
         'concurrent:dist',
         'imagemin',
@@ -471,7 +462,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('buildTheme', [
         'clean:dist',
-        'phplint',
+        'newer:phplint',
         'useminPrepare',
         'concurrent:dist',
         'imagemin',
@@ -486,9 +477,9 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('lint', [
-        'jshint',
-        'jsvalidate',
-        'phplint'
+        'newer:jshint',
+        'newer:jsvalidate',
+        'newer:phplint'
     ]);
 
     grunt.registerTask('travis', [

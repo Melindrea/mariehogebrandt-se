@@ -1,157 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Page Not Found :(</title>
-        <style>
-            ::-moz-selection {
-                background: #b3d4fc;
-                text-shadow: none;
-            }
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>mariehogebrandt-se</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css({.tmp,app}) styles/site.min.css -->
+        <link rel="stylesheet" href="styles/site.css">
+        <!-- endbuild -->
+        <script src="components/jquery/jquery.js"></script>
 
-            ::selection {
-                background: #b3d4fc;
-                text-shadow: none;
-            }
+        <script src="components/golden-grid-system/GGS.js"></script><!-- remove in production -->
 
-            html {
-                padding: 30px 10px;
-                font-size: 20px;
-                line-height: 1.4;
-                color: #737373;
-                background: #f0f0f0;
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            }
+        <!-- build:js scripts/head.min.js -->
+        <script src="components/modernizr/modernizr.min.js"></script>
+        <script src="components/selectivizr/selectivizr.js"></script>
+        <script src="components/WP-MarkDown/js/prettify.js"></script>
+        <!-- endbuild -->
 
-            html,
-            input {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            }
-
-            body {
-                max-width: 500px;
-                _width: 500px;
-                padding: 30px 20px 50px;
-                border: 1px solid #b3b3b3;
-                border-radius: 4px;
-                margin: 0 auto;
-                box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-                background: #fcfcfc;
-            }
-
-            h1 {
-                margin: 0 10px;
-                font-size: 50px;
-                text-align: center;
-            }
-
-            h1 span {
-                color: #bbb;
-            }
-
-            h3 {
-                margin: 1.5em 0 0.5em;
-            }
-
-            p {
-                margin: 1em 0;
-            }
-
-            ul {
-                padding: 0 0 0 40px;
-                margin: 1em 0;
-            }
-
-            .container {
-                max-width: 380px;
-                _width: 380px;
-                margin: 0 auto;
-            }
-
-            /* google search */
-
-            #goog-fixurl ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            #goog-fixurl form {
-                margin: 0;
-            }
-
-            #goog-wm-qt,
-            #goog-wm-sb {
-                border: 1px solid #bbb;
-                font-size: 16px;
-                line-height: normal;
-                vertical-align: top;
-                color: #444;
-                border-radius: 2px;
-            }
-
-            #goog-wm-qt {
-                width: 220px;
-                height: 20px;
-                padding: 5px;
-                margin: 5px 10px 0 0;
-                box-shadow: inset 0 1px 1px #ccc;
-            }
-
-            #goog-wm-sb {
-                display: inline-block;
-                height: 32px;
-                padding: 0 10px;
-                margin: 5px 0 0;
-                white-space: nowrap;
-                cursor: pointer;
-                background-color: #f5f5f5;
-                background-image: -webkit-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -moz-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -ms-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -o-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                *overflow: visible;
-                *display: inline;
-                *zoom: 1;
-            }
-
-            #goog-wm-sb:hover,
-            #goog-wm-sb:focus {
-                border-color: #aaa;
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-                background-color: #f8f8f8;
-            }
-
-            #goog-wm-qt:hover,
-            #goog-wm-qt:focus {
-                border-color: #105cb6;
-                outline: 0;
-                color: #222;
-            }
-
-            input::-moz-focus-inner {
-                padding: 0;
-                border: 0;
-            }
-        </style>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
     </head>
     <body>
-        <div class="container">
-            <h1>Not found <span>:(</span></h1>
-            <p>Sorry, but the page you were trying to view does not exist.</p>
-            <p>It looks like this was the result of either:</p>
-            <ul>
-                <li>a mistyped address</li>
-                <li>an out-of-date link</li>
-            </ul>
-            <script>
-                var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
-            </script>
-            <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+        <header class="l-container site-header" role="banner">
+    <ul class="header-contact">
+        <li class="brand"><a href="/"><img src="images/logo.svg" alt="Marie Hogebrandt" class="site-title"></a></li>
+        <li><a href="https://twitter.com/Melindrea82" title="Twitter"><i class="brandico-twitter-bird"></i></a></li>
+        <li><a href="https://github.com/Melindrea" title="Github"><i class="fontawesome-github"></i></a></li>
+        <li><a href="http://se.linkedin.com/in/mariehogebrandt" title="LinkedIn"><i class="brandico-linkedin"></i></a></li>
+        <li><a href="http://melindrea82.deviantart.com/" title="DeviantArt"><i class="brandico-deviantart"></i></a></li>
+        <li><a href="/contact.html" title="Contact"><i class="entypo-mail"></i></a></li>
+    </ul>
+    <nav class="nav-collapse nav-main" role="navigation">
+    <ul>
+        
+        <li class="menu-index">
+            <a href="/">Home</a>
+        </li>
+        
+        <li class="menu-articles">
+            <a href="/articles.html">Articles</a>
+        </li>
+        
+        <li class="menu-page">
+            <a href="/page.html">Page</a>
+        </li>
+        
+        <li class="menu-characters">
+            <a href="/characters.html">Characters</a>
+        </li>
+        
+        <li class="menu-gallery">
+            <a href="/gallery.html">Gallery</a>
+        </li>
+        
+    </ul>
+</nav>
+
+    
+    <div class="breadcrumbs">
+    <span xmlns:v="http://rdf.data-vocabulary.org/#">
+        <span typeof="v:Breadcrumb">
+            <a href="/" rel="v:url" property="v:title">Home</a>
+        </span> »
+        
+        <span typeof="v:Breadcrumb">
+            <span class="breadcrumb_last" property="v:title">404 - Not found</span>
+        </span>
+    </span>
+</div>
+
+    
+</header>
+
+        <!--[if lt IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+
+        <div class="l-container content-text" role="document">
+            <main class="content" role="main">
+                <article class="inner">
+                    <p><p>Sorry, but the page you were trying to view does not exist.</p></p>
+<p><p>It looks like this was the result of either:</p></p>
+<p><ul>
+    <li>a mistyped address</li>
+    <li>an out-of-date link</li>
+</ul></p>
+<script>
+    var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
+</script>
+<script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+
+
+                </article>
+            </main>
+            
         </div>
+
+
+        <footer class="site-footer l-container" role="contentinfo">
+    <ul>
+        <li class="copyright"><a href="http://mariehogebrandt.se">&copy; 2013, Marie Hogebrandt</a></li>
+        <li class="github-link"><a href="https://github.com/Melindrea/mariehogebrandt-se"><i class="fontawesome-github"></i> Fork on Github</a></li>
+        <li class="colophon"><a href="/colophon">Colophon</a></li>
+        <li class="feed"><a href="/feed"><i class="fontawesome-rss"></i> Feed</a></li>
+    </ul>
+</footer>
+
+        <!-- build:js scripts/main.min.js -->
+        <script src="components/WP-MarkDown/js/pagedown/Markdown.Converter.js"></script>
+        <script src="components/WP-MarkDown/js/pagedown/Markdown.Sanitizer.js"></script>
+        <script src="components/WP-MarkDown/js/pagedown/Markdown.Editor.js"></script>
+        <script src="components/WP-MarkDown/js/markdown.js"></script>
+        <script src="components/jquery-mousewheel/jquery.mousewheel.js"></script>
+        <script src="components/fancybox/source/jquery.fancybox.js"></script>
+        <script src="components/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/fancybox.js"></script>
+        <script src="scripts/external-links.js"></script>
+        <!-- endbuild -->
     </body>
 </html>
