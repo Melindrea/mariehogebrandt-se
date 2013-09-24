@@ -1,53 +1,44 @@
 ---
 title: Code
 page: code
+class: content-text
 ---
 
-<div class="l-container content-first" role="document">
-    <main class="content" role="main">
-        <article class="inner">
-            <header>
-                    <h1>Marie</h1>
-                        <div class="subtitle">Developer, Role player, Idealist
-                        </div>
-                    </header>
-                    <pre class="prettyprint prettyprinted" style=""><code>
-<span class="com"># Snazzy git prompt</span><span class="pln">
+<header>
+    <h1>Marie</h1>
+    <div class="subtitle">Developer, Role player, Idealist
+    </div>
+</header>
+<pre class="prettyprint prettyprinted"><code>
+    <span class="com"># Snazzy git prompt</span><span class="pln">
 
-</span><span class="com">#http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/</span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> _git_prompt</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">#http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/</span><span class="pln">
+    </span><span class="kwd">function</span><span class="pln"> _git_prompt</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
     </span><span class="kwd">local</span><span class="pln"> git_status</span><span class="pun">=</span><span class="str">"`git status -unormal 2&gt;&amp;1`"</span><span class="pln">
     </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">!</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> </span><span class="typ">Not</span><span class="pln">\ a\ git\ repo </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ to\ commit </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">42</span><span class="pln">
-        </span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ added\ to\ commit\ but\ untracked\ files\ present </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">43</span><span class="pln">
-        </span><span class="kwd">else</span><span class="pln">
-            </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">45</span><span class="pln">
-        </span><span class="kwd">fi</span><span class="pln">
-        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> </span><span class="typ">On</span><span class="pln">\ branch\ </span><span class="pun">([^[:</span><span class="pln">space</span><span class="pun">:]]+)</span><span class="pln"> </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-            branch</span><span class="pun">=</span><span class="pln">$</span><span class="pun">{</span><span class="pln">BASH_REMATCH</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]}</span><span class="pln">
-            test </span><span class="str">"$branch"</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> master </span><span class="pun">||</span><span class="pln"> branch</span><span class="pun">=</span><span class="str">' '</span><span class="pln">
-        </span><span class="kwd">else</span><span class="pln">
-            </span><span class="com"># Detached HEAD.  (branch=HEAD is a faster alternative.)</span><span class="pln">
-            branch</span><span class="pun">=</span><span class="str">"(`git describe --all --contains --abbrev=4 HEAD 2&gt; /dev/null ||
-                echo HEAD`)"</span><span class="pln">
-        </span><span class="kwd">fi</span><span class="pln">
-        echo </span><span class="pun">-</span><span class="pln">n </span><span class="str">'\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ to\ commit </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+    </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">42</span><span class="pln">
+    </span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> nothing\ added\ to\ commit\ but\ untracked\ files\ present </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+    </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">43</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+    </span><span class="kwd">local</span><span class="pln"> ansi</span><span class="pun">=</span><span class="lit">45</span><span class="pln">
     </span><span class="kwd">fi</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
-</span><span class="kwd">function</span><span class="pln"> _prompt_command</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[[</span><span class="pln"> </span><span class="str">"$git_status"</span><span class="pln"> </span><span class="pun">=~</span><span class="pln"> </span><span class="typ">On</span><span class="pln">\ branch\ </span><span class="pun">([^[:</span><span class="pln">space</span><span class="pun">:]]+)</span><span class="pln"> </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+    branch</span><span class="pun">=</span><span class="pln">$</span><span class="pun">{</span><span class="pln">BASH_REMATCH</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]}</span><span class="pln">
+    test </span><span class="str">"$branch"</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> master </span><span class="pun">||</span><span class="pln"> branch</span><span class="pun">=</span><span class="str">' '</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+    </span><span class="com"># Detached HEAD.  (branch=HEAD is a faster alternative.)</span><span class="pln">
+    branch</span><span class="pun">=</span><span class="str">"(`git describe --all --contains --abbrev=4 HEAD 2&gt; /dev/null ||
+        echo HEAD`)"</span><span class="pln">
+    </span><span class="kwd">fi</span><span class="pln">
+    echo </span><span class="pun">-</span><span class="pln">n </span><span class="str">'\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '</span><span class="pln">
+    </span><span class="kwd">fi</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">function</span><span class="pln"> _prompt_command</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
     PS1</span><span class="pun">=</span><span class="str">"`_git_prompt`"'\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
-PROMPT_COMMAND</span><span class="pun">=</span><span class="pln">_prompt_command
+    </span><span class="pun">}</span><span class="pln">
+    PROMPT_COMMAND</span><span class="pun">=</span><span class="pln">_prompt_command
 
-</span><span class="com"># end snazzy git prompt</span></code></pre>
-        </article>
-    </main>
-    <aside class="sidebar widget-area" role="complementary">
-        <div class="inner">
-
-        </div>
-    </aside>
-    </div>
+    </span><span class="com"># end snazzy git prompt</span>
+</code></pre>
 

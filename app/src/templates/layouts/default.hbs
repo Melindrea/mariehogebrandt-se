@@ -31,12 +31,27 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
     </head>
-    <body>
+    <body{{#if bodyClass}} {{bodyClass}}{{/if}}>
         {{> header}}
         {{> outdated-warning}}
 
 
-        {{> body}}
+        <div class="l-container{{#if class}} {{class}}{{/if}}" role="document">
+            <main class="content" role="main">
+                <article class="inner{{#if articleClass}} {{articleClass}}{{/if}}">
+                    {{#markdown}}
+                    {{> body}}
+                    {{/markdown}}
+                </article>
+            </main>
+            {{#if sidebar}}
+            <aside class="sidebar widget-area" role="complementary">
+                <div class="inner">
+                    {{> sidebar }}
+                </div>
+            </aside>
+            {{/if}}
+        </div>
 
 
         {{> footer}}
