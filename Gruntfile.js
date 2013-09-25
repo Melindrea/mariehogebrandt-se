@@ -415,8 +415,8 @@ module.exports = function (grunt) {
     grunt.loadTasks('tasks');
 
     grunt.registerTask('js', [
-        'newer:jshint',
         'newer:jsvalidate',
+        'newer:jshint',
         'modernizr'
     ]);
 
