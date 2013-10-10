@@ -1,21 +1,25 @@
 @import url(http://weloveiconfonts.com/api/?family=brandico|entypo|fontawesome);
 
+%icon {
+  font-style: normal;
+  font-variant: normal;
+}
 /* brandico */
 [class*="brandico-"]:before {
   font-family: 'brandico', sans-serif;
-  font-style: normal;
+  @extend %icon;
 }
 
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
-  font-style: normal;
+  @extend %icon;
 }
 
 /* fontawesome */
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
-  font-style: normal;
+  @extend %icon;
 }
 
 .entypo-post:before {
