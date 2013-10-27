@@ -37,6 +37,7 @@ h2 {
 //Uppercase, higher letter spacing
 #{headers()} {
     @include smallcaps($heading-color, $bold);
+    text-rendering: auto;
 }
 
 //Indented Sidehead

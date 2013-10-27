@@ -17,7 +17,7 @@ nav,
     border-bottom: 3px double rgba($body-copy-color, 0.5);
     position: relative;
     z-index: 1;
-    @include smallcaps($body-copy-color, $bold);
+    @include smallcaps($body-copy-color, $normal);
 
     li {
         display: inline-block;
@@ -40,6 +40,9 @@ nav,
 
 .active {
     font-weight: $bold;
+    a {
+        color: black;
+    }
 }
 
 .breadcrumbs {
